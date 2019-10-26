@@ -1,0 +1,7 @@
+data/mbed-os.lib.i
+data/.gitignore.i
+data/main.cpp.i
+data/images.h.i
+data/images.c.i
+data/Hexi_OLED_SSD1351.lib.i
+data/FXOS8700.lib.i
