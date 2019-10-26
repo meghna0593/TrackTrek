@@ -35,6 +35,8 @@ float ax, ay, az; // Integer value from the sensor to be displayed
 char text1[20]; // Text Buffer for dynamic value displayed
 char text2[20]; // Text Buffer for dynamic value displayed
 char text3[20]; // Text Buffer for dynamic value displayed
+int flag = 0;
+int fallDetected = 0;
 
 void ButtonUp(void)
 {
@@ -57,18 +59,31 @@ void ButtonDown(void)
 void ButtonRight(void)
 {
     StartHaptic();
+    fallDetected = 0;
+    if(flag == 0 ){
+        redLed      = LED_OFF;
+        greenLed    = LED_ON;
+        blueLed     = LED_OFF;
+    }
+    else if(flag == 1 ){
+        redLed      = LED_ON;
+        greenLed    = LED_ON;
+        blueLed     = LED_OFF;
+    }
+    else{
+        redLed      = LED_ON;
+        greenLed    = LED_OFF;
+        blueLed     = LED_OFF;
+    }
     
-    redLed      = LED_OFF;
-    greenLed    = LED_OFF;
-    blueLed     = LED_ON;
-    oled.FillScreen(COLOR_BLACK);
+    // oled.FillScreen(COLOR_BLACK);
 }
 
 void ButtonLeft(void)
 {
     StartHaptic();
     
-    redLed      = LED_ON;
+    redLed      = LED_OFF;
     greenLed    = LED_ON;
     blueLed     = LED_OFF;
 }
@@ -97,6 +112,7 @@ void StopHaptic(void const *n) {
 }
 
 void textPropertyChange(uint16_t color, char * str){
+    printf("%d",color);
     oled_text_properties_t textProperties = {0};
     oled.GetTextProperties(&textProperties); 
 
@@ -112,49 +128,58 @@ int main() {
     // Configure Accelerometer FXOS8700, Magnetometer FXOS8700
     accel.accel_config();
     mag.mag_config();
-    int flag = 0, fallDetected = 0;
 
     // Fill 96px by 96px Screen with 96px by 96px Image starting at x=0,y=0
     oled.FillScreen(COLOR_BLACK);
 
-    kw40z_device.attach_buttonUp(&ButtonUp);
-    kw40z_device.attach_buttonDown(&ButtonDown);
-    kw40z_device.attach_buttonLeft(&ButtonLeft);
-    kw40z_device.attach_buttonRight(&ButtonRight);
+    // kw40z_device.attach_buttonUp(&ButtonUp);
+    // kw40z_device.attach_buttonDown(&ButtonDown);
+    // kw40z_device.attach_buttonLeft(&ButtonLeft);
+    // kw40z_device.attach_buttonRight(&ButtonRight);
 
     while (true) 
     {
+      
       accel.acquire_accel_data_g(accel_data);
       accel_rms = sqrt(((accel_data[0]*accel_data[0])+(accel_data[1]*accel_data[1])+(accel_data[2]*accel_data[2]))/3);
-      printf("Accelerometer \tX-Axis %4.2f \tY-Axis %4.2f \tZ-Axis %4.2f \tRMS %4.2f\n\r",accel_data[0],accel_data[1],accel_data[2],accel_rms);
-    //   wait(0.01);
+
       ax = accel_data[0];
       ay = accel_data[1];
       az = accel_data[2];             
       mag.acquire_mag_data_uT(mag_data);
-      printf("Magnetometer \tX-Axis %4.2f \tY-Axis %4.2f \tZ-Axis %4.2f \n\n\r",mag_data[0],mag_data[1],mag_data[2]);
       
       if(accel_data[0]>=0.99 && mag_data[1]<=-15.0){
           fallDetected = 1;
+          oled_text_properties_t optionProperties = {0};
+          oled.GetTextProperties(&optionProperties); 
+          optionProperties.fontColor = COLOR_WHITE;
+          optionProperties.alignParam = OLED_TEXT_ALIGN_RIGHT;
+          strcpy((char *) text3,"YES");
+          oled.TextBox((uint8_t *)text3,70,79,20,15);
       }
 
       if(fallDetected){
           
           if(flag == 0){ //I am fine
                 textPropertyChange(COLOR_GREEN, (char *)"      I am fine      ");
-                flag++;
-                ThisThread::sleep_for(2500);
+                flag = 1;
+                // ThisThread::sleep_for(2500);
             }
             else if(flag == 1){ //Notify Friend
                 textPropertyChange(COLOR_YELLOW, (char *)"  Notify Friend  ");
-                flag++;
-                ThisThread::sleep_for(2500);
+                flag = 2;
+                // ThisThread::sleep_for(2500);
             }
             else { //SOS call
                 textPropertyChange(COLOR_RED, (char *)"      SOS Call      ");
                 flag = 0;
-                ThisThread::sleep_for(2500);
+                
             }
-      } 
+            ThisThread::sleep_for(2500);
+            kw40z_device.attach_buttonRight(&ButtonRight);
+
+      }
+      kw40z_device.attach_buttonLeft(&ButtonLeft);
+      
     }
 }
