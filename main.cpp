@@ -39,7 +39,7 @@ char text2[20]; // Text Buffer for dynamic value displayed
 char text3[20]; // Text Buffer for dynamic value displayed
 int flag = 0;
 int newflag = 0;
-int fallDetected = 0;
+bool fallDetected = false;
 
 void StartHaptic(void) {
   hapticTimer.start(75);
@@ -112,9 +112,12 @@ void textPropertyChange(uint16_t color, char *str) {
   oled.Label((uint8_t *)text1, 12, 45);
 }
 
-void reset() {
+void reset(void) {  
+  oled.FillScreen(COLOR_BLACK);
+  welcome();
   fallDetected = false;
   flag = 0;
+  newflag = 0;
   redLed = LED_OFF;
   greenLed = LED_OFF;
   blueLed = LED_OFF;
@@ -135,8 +138,7 @@ void ButtonRightPressed(void) {
     greenLed = LED_OFF;
     blueLed = LED_ON;
   }
-  wait(30);
-  reset();
+//   wait(30);
 }
 
 int main() {
@@ -156,15 +158,14 @@ int main() {
     ay = accel_data[1];
     az = accel_data[2];
     mag.acquire_mag_data_uT(mag_data);
-
+    
     if (accel_data[0] >= 0.99 && mag_data[1] <= -10.0) {
       fallDetected = true;
     }
 
-    if (fallDetected != true) {
+    if (!fallDetected) {
       welcome();
     }
-
     else {
       fall();
 
@@ -185,5 +186,7 @@ int main() {
       ThisThread::sleep_for(2500);
     }
     flag = newflag;
+    kw40z_device.attach_buttonLeft(&reset);
   }
+  
 }
