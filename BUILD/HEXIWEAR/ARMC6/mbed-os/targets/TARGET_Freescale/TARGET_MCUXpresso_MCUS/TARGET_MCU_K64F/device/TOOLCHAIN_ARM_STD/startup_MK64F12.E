@@ -1,9 +1,9 @@
-# 1 ".\\mbed-os\\targets\\TARGET_Freescale\\TARGET_MCUXpresso_MCUS\\TARGET_MCU_K64F\\device\\TOOLCHAIN_ARM_STD\\startup_MK64F12.S"
+# 1 "./mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/device/TOOLCHAIN_ARM_STD/startup_MK64F12.S"
 # 1 "<built-in>" 1
 # 390 "<built-in>"
-# 1 "./BUILD/HEXIWEAR/ARMC6\\mbed_config.h" 1
+# 1 "./BUILD/HEXIWEAR/ARMC6/mbed_config.h" 1
 # 391 "<built-in>" 2
-# 1 ".\\mbed-os\\targets\\TARGET_Freescale\\TARGET_MCUXpresso_MCUS\\TARGET_MCU_K64F\\device\\TOOLCHAIN_ARM_STD\\startup_MK64F12.S" 2
+# 1 "./mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/device/TOOLCHAIN_ARM_STD/startup_MK64F12.S" 2
 ; * ---------------------------------------------------------------------------------------
 ; * @file: startup_MK64F12.s
 ; * @purpose: CMSIS Cortex-M4 Core Device Startup File

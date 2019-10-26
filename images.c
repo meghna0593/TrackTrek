@@ -1,3 +1,4 @@
+
  /*  Hexiwear NXP Bitmap Images
  *   This file contains the bitmaps for the full screen (96 by 96 pixels) NXP logo 
  *   and a smaller 96 by 32 pixels NXP logo.  

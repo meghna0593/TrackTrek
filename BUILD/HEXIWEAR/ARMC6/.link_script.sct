@@ -1,4 +1,4 @@
-#! armclang -E --target=arm-arm-none-eabi -x c -mcpu=cortex-m4 -I .\mbed-os\targets\TARGET_Freescale\TARGET_MCUXpresso_MCUS\TARGET_MCU_K64F\device\TOOLCHAIN_ARM_STD
+#! armclang -E --target=arm-arm-none-eabi -x c -mcpu=cortex-m4 -I ./mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/device/TOOLCHAIN_ARM_STD
 /*
 ** ###################################################################
 **     Processors:          MK64FN1M0CAJ12

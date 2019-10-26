@@ -2,3 +2,7 @@
 .mbed
 projectfiles
 *.py*
+BUILD
+FXOS8700
+Hexi_OLED_SSD1351
+mbed-os

@@ -1,11 +1,11 @@
-# 1 ".\\mbed-os\\rtos\\source\\TARGET_CORTEX\\rtx5\\RTX\\Source\\TOOLCHAIN_ARM\\TARGET_RTOS_M4_M7\\irq_cm4f.S"
+# 1 "./mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/TOOLCHAIN_ARM/TARGET_RTOS_M4_M7/irq_cm4f.S"
 # 1 "<built-in>" 1
 # 390 "<built-in>"
-# 1 "./BUILD/HEXIWEAR/ARMC6\\mbed_config.h" 1
+# 1 "./BUILD/HEXIWEAR/ARMC6/mbed_config.h" 1
 # 391 "<built-in>" 2
-# 1 ".\\mbed-os\\rtos\\source\\TARGET_CORTEX\\rtx5\\RTX\\Source\\TOOLCHAIN_ARM\\TARGET_RTOS_M4_M7\\irq_cm4f.S" 2
+# 1 "./mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/TOOLCHAIN_ARM/TARGET_RTOS_M4_M7/irq_cm4f.S" 2
 ;
-# 27 ".\\mbed-os\\rtos\\source\\TARGET_CORTEX\\rtx5\\RTX\\Source\\TOOLCHAIN_ARM\\TARGET_RTOS_M4_M7\\irq_cm4f.S"
+# 27 "./mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/TOOLCHAIN_ARM/TARGET_RTOS_M4_M7/irq_cm4f.S"
 I_T_RUN_OFS EQU 20 ; osRtxInfo.thread.run offset
 TCB_SP_OFS EQU 56 ; TCB.SP offset
 TCB_SF_OFS EQU 34 ; TCB.stack_frame offset
