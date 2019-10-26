@@ -3,6 +3,17 @@
 #include "Hexi_OLED_SSD1351.h"
 #include "images.h"
 #include "string.h"
+#include "Hexi_KW40Z.h"
+#define LED_ON      0
+#define LED_OFF     1
+   
+void StartHaptic(void);
+void StopHaptic(void const *n);
+
+DigitalOut redLed(LED1);
+DigitalOut greenLed(LED2);
+DigitalOut blueLed(LED3);
+DigitalOut haptic(PTB9);
 
 // Pin connections
 DigitalOut led1(LED_GREEN); // RGB LED
@@ -10,6 +21,7 @@ Serial pc(USBTX, USBRX); // Serial interface
 FXOS8700 accel(PTC11, PTC10);
 FXOS8700 mag(PTC11, PTC10);
 SSD1351 oled(PTB22,PTB21,PTC13,PTB20,PTE6, PTD15); // SSD1351 OLED Driver (MOSI,SCLK,POWER,CS,RST,DC)
+KW40Z kw40z_device(PTE24, PTE25);
 
 // Variables
 float accel_data[3]; // Storage for the data from the sensor
@@ -21,6 +33,52 @@ char text1[20]; // Text Buffer for dynamic value displayed
 char text2[20]; // Text Buffer for dynamic value displayed
 char text3[20]; // Text Buffer for dynamic value displayed
 
+void ButtonUp(void)
+{
+    // StartHaptic();
+    
+    redLed      = LED_ON;
+    greenLed    = LED_OFF;
+    blueLed     = LED_OFF;
+}
+
+void ButtonDown(void)
+{
+    // StartHaptic();
+    printf("Clicked button");
+    redLed      = LED_OFF;
+    greenLed    = LED_ON;
+    blueLed     = LED_OFF;
+}
+
+void ButtonRight(void)
+{
+    // StartHaptic();
+    
+    redLed      = LED_OFF;
+    greenLed    = LED_OFF;
+    blueLed     = LED_ON;
+    oled.FillScreen(COLOR_BLACK);
+}
+
+void ButtonLeft(void)
+{
+    // StartHaptic();
+    
+    redLed      = LED_ON;
+    greenLed    = LED_ON;
+    blueLed     = LED_OFF;
+}
+
+void ButtonSlide(void)
+{
+    // StartHaptic();
+    
+    redLed      = LED_ON;
+    greenLed    = LED_ON;
+    blueLed     = LED_ON;
+}
+
 int main() {
         
     // Configure Accelerometer FXOS8700, Magnetometer FXOS8700
@@ -31,12 +89,16 @@ int main() {
     image1  = Accelero;
 
     // Dimm Down OLED backlight
-   oled.DimScreenON();
+    oled.DimScreenON();
     
     // Fill 96px by 96px Screen with 96px by 96px Image starting at x=0,y=0
     oled.FillScreen(COLOR_BLACK);
 
-    
+    kw40z_device.attach_buttonUp(&ButtonUp);
+    kw40z_device.attach_buttonDown(&ButtonDown);
+    kw40z_device.attach_buttonLeft(&ButtonLeft);
+    kw40z_device.attach_buttonRight(&ButtonRight);
+    // kw40z_device.attach_buttonSlide(&ButtonSlide);
     while (true) 
     {
     
@@ -99,6 +161,7 @@ int main() {
 
             // led1 = !led1;
       }
+
 
       
       Thread::wait(250);

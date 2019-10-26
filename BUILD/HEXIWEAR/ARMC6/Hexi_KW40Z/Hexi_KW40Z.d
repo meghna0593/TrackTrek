@@ -1,4 +1,5 @@
-BUILD\HEXIWEAR\ARMC6\main.o: main.cpp BUILD\HEXIWEAR\ARMC6\mbed_config.h \
+BUILD\HEXIWEAR\ARMC6\Hexi_KW40Z\Hexi_KW40Z.o: Hexi_KW40Z\Hexi_KW40Z.cpp \
+  BUILD\HEXIWEAR\ARMC6\mbed_config.h Hexi_KW40Z\Hexi_KW40Z.h \
   mbed-os\mbed.h mbed-os\platform\mbed_version.h mbed-os\rtos\rtos.h \
   mbed-os\rtos\mbed_rtos_storage.h \
   mbed-os\rtos\source\TARGET_CORTEX\mbed_rtx_storage.h \
@@ -172,6 +173,4 @@ BUILD\HEXIWEAR\ARMC6\main.o: main.cpp BUILD\HEXIWEAR\ARMC6\mbed_config.h \
   mbed-os\platform\ScopedRamExecutionLock.h \
   mbed-os\platform\mbed_stats.h mbed-os\platform\Callback.h \
   mbed-os\platform\FunctionPointer.h mbed-os\platform\ScopedLock.h \
-  FXOS8700\FXOS8700.h Hexi_OLED_SSD1351\Hexi_OLED_SSD1351.h \
-  Hexi_OLED_SSD1351\OLED_types.h Hexi_OLED_SSD1351\OLED_info.h images.h \
-  Hexi_KW40Z\Hexi_KW40Z.h mbed-os\rtos\rtos.h
+  mbed-os\rtos\rtos.h
