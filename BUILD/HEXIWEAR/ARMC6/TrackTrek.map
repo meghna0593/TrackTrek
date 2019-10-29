@@ -216,6 +216,8 @@ Adding cpp init reference.              reference :  __cpp_initialize__aeabi_
               reference :  SSD1351::TextBox(const unsigned char*, signed char, signed char, unsigned char, unsigned char)
               reference :  SSD1351::SSD1351(PinName, PinName, PinName, PinName, PinName, PinName)
               reference :  SSD1351::~SSD1351()
+              reference :  FXOS8700::mag_config()
+              reference :  FXOS8700::accel_config()
               reference :  FXOS8700::acquire_mag_data_uT(float*)
               reference :  FXOS8700::acquire_accel_data_g(float*)
               reference :  FXOS8700::FXOS8700(PinName, PinName)
@@ -30549,7 +30551,7 @@ Memory Map of the image
 
   Image Entry point : 0x00000411
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000123e0, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00012488, Max: 0x00100000, ABSOLUTE)
 
     Execution Region VECTOR_ROM (Base: 0x00000000, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
 
@@ -30565,7 +30567,7 @@ Memory Map of the image
     0x00000400   0x00000010   Data   RO        34941    FlashConfig         BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/device/TOOLCHAIN_ARM_STD/startup_MK64F12.o
 
 
-    Execution Region ER_IROM1 (Base: 0x00000410, Size: 0x00011ec4, Max: 0x000ffbf0, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000410, Size: 0x00011f6c, Max: 0x000ffbf0, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -31563,673 +31565,676 @@ Memory Map of the image
     0x00009d3c   0x00000068   Code   RO          183    .text._ZN7SSD13518SendDataEPKhj  BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/Hexi_OLED_SSD1351.o
     0x00009da4   0x000000f8   Code   RO          171    .text._ZN7SSD1351C2E7PinNameS0_S0_S0_S0_S0_  BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/Hexi_OLED_SSD1351.o
     0x00009e9c   0x00000004   Code   RO          181    .text._ZN7SSD1351D2Ev  BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/Hexi_OLED_SSD1351.o
-    0x00009ea0   0x000000b0   Code   RO           15    .text._ZN8FXOS870019acquire_mag_data_uTEPf  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
-    0x00009f50   0x000000b8   Code   RO           13    .text._ZN8FXOS870020acquire_accel_data_gEPf  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
-    0x0000a008   0x00000004   Code   RO            7    .text._ZN8FXOS8700C2E7PinNameS0_  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
-    0x0000a00c   0x0000003e   Code   RO        33251    .text._ZNK12DirectSerial4pollEs  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a04a   0x00000002   PAD
-    0x0000a04c   0x00000048   Code   RO        28707    .text._ZNK12SingletonPtrIN4rtos5MutexEE3getEv  BUILD/HEXIWEAR/ARMC6/mbed-os/features/netsocket/nsapi_dns.o
-    0x0000a094   0x00000004   Code   RO         1563    .text._ZNK12SingletonPtrIN4rtos5MutexEEptEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/AnalogIn.o
-    0x0000a098   0x00000004   Code   RO         2322    .text._ZNK4mbed10FileHandle11is_blockingEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a09c   0x00000004   Code   RO         2328    .text._ZNK4mbed10FileHandle4pollEs  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a0a0   0x00000014   Code   RO          166    .text._ZNK4mbed8CallbackIFvvEE14method_contextI5KW40ZMS4_FvvEEclEv  BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
-    0x0000a0b4   0x00000006   Code   RO          377    .text._ZNK4mbed8CallbackIFvvEE16function_contextIPFvPvEvEclEv  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a0ba   0x00000002   PAD
-    0x0000a0bc   0x00000022   Code   RO         1365    .text._ZNK4mbed8CallbackIFvvEE4callEv  BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266Interface.o
-    0x0000a0de   0x00000002   PAD
-    0x0000a0e0   0x00000004   Code   RO         1363    .text._ZNK4mbed8CallbackIFvvEEclEv  BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266Interface.o
-    0x0000a0e4   0x0000000a   Code   RO         1510    .text._ZNK4mbed8CallbackIFvvEEcvbEv  BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266/ESP8266.o
-    0x0000a0ee   0x00000002   PAD
-    0x0000a0f0   0x00000024   Code   RO        33198    .text._ZNK4mbed8internal18timed_predicate_op14wake_conditionEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_os_timer.o
-    0x0000a114   0x00000006   Code   RO        32723    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE13wake_time_setEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
-    0x0000a11a   0x00000002   PAD
-    0x0000a11c   0x00000052   Code   RO        32743    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE14_elapsed_ticksEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x00009ea0   0x00000050   Code   RO           11    .text._ZN8FXOS870010mag_configEv  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
+    0x00009ef0   0x0000003a   Code   RO            9    .text._ZN8FXOS870012accel_configEv  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
+    0x00009f2a   0x00000006   PAD
+    0x00009f30   0x000000b0   Code   RO           15    .text._ZN8FXOS870019acquire_mag_data_uTEPf  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
+    0x00009fe0   0x000000b8   Code   RO           13    .text._ZN8FXOS870020acquire_accel_data_gEPf  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
+    0x0000a098   0x00000004   Code   RO            7    .text._ZN8FXOS8700C2E7PinNameS0_  BUILD/HEXIWEAR/ARMC6/FXOS8700/FXOS8700.o
+    0x0000a09c   0x0000003e   Code   RO        33251    .text._ZNK12DirectSerial4pollEs  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a0da   0x00000002   PAD
+    0x0000a0dc   0x00000048   Code   RO        28707    .text._ZNK12SingletonPtrIN4rtos5MutexEE3getEv  BUILD/HEXIWEAR/ARMC6/mbed-os/features/netsocket/nsapi_dns.o
+    0x0000a124   0x00000004   Code   RO         1563    .text._ZNK12SingletonPtrIN4rtos5MutexEEptEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/AnalogIn.o
+    0x0000a128   0x00000004   Code   RO         2322    .text._ZNK4mbed10FileHandle11is_blockingEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a12c   0x00000004   Code   RO         2328    .text._ZNK4mbed10FileHandle4pollEs  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a130   0x00000014   Code   RO          166    .text._ZNK4mbed8CallbackIFvvEE14method_contextI5KW40ZMS4_FvvEEclEv  BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
+    0x0000a144   0x00000006   Code   RO          377    .text._ZNK4mbed8CallbackIFvvEE16function_contextIPFvPvEvEclEv  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a14a   0x00000002   PAD
+    0x0000a14c   0x00000022   Code   RO         1365    .text._ZNK4mbed8CallbackIFvvEE4callEv  BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266Interface.o
     0x0000a16e   0x00000002   PAD
-    0x0000a170   0x00000006   Code   RO        32721    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE16wake_time_passedEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
-    0x0000a176   0x00000002   PAD
-    0x0000a178   0x00000006   Code   RO        32739    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE20unacknowledged_ticksEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x0000a170   0x00000004   Code   RO         1363    .text._ZNK4mbed8CallbackIFvvEEclEv  BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266Interface.o
+    0x0000a174   0x0000000a   Code   RO         1510    .text._ZNK4mbed8CallbackIFvvEEcvbEv  BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266/ESP8266.o
     0x0000a17e   0x00000002   PAD
-    0x0000a180   0x00000006   Code   RO        32741    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE8get_tickEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
-    0x0000a186   0x00000002   PAD
-    0x0000a188   0x00000008   Code   RO         2291    .text._ZThn292_N4mbed6Serial4lockEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a190   0x00000008   Code   RO         2283    .text._ZThn292_N4mbed6Serial5_getcEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a198   0x00000008   Code   RO         2287    .text._ZThn292_N4mbed6Serial5_putcEi  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a1a0   0x00000008   Code   RO         2295    .text._ZThn292_N4mbed6Serial6unlockEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a1a8   0x00000008   Code   RO         2310    .text._ZThn292_N4mbed6SerialD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a1b0   0x00000008   Code   RO         2308    .text._ZThn292_N4mbed6SerialD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a1b8   0x00000008   Code   RO         2334    .text._ZThn296_N4mbed6SerialD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a1c0   0x00000008   Code   RO         2332    .text._ZThn296_N4mbed6SerialD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x0000a1c8   0x00000004   Code   RO        32637    .text._ZThn4_N4mbed6StreamD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
-    0x0000a1cc   0x00000006   Code   RO        32633    .text._ZThn4_N4mbed6StreamD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
-    0x0000a1d2   0x00000002   PAD
-    0x0000a1d4   0x00000006   Code   RO        32690    .text._ZThn4_N4mbed8FileLikeD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
-    0x0000a1da   0x00000002   PAD
-    0x0000a1dc   0x00000006   Code   RO        32688    .text._ZThn4_N4mbed8FileLikeD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
-    0x0000a1e2   0x00000002   PAD
-    0x0000a1e4   0x00000004   Code   RO        33403    .text._ZdaPv        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a1e8   0x00000004   Code   RO        33399    .text._ZdlPv        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a1ec   0x00000048   Code   RO        33393    .text._Znaj         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a234   0x00000010   Code   RO        37573    .text.__NVIC_ClearPendingIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000a244   0x00000028   Code   RO        36973    .text.__NVIC_DisableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000a26c   0x00000018   Code   RO        37297    .text.__NVIC_DisableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000a284   0x00000018   Code   RO        37605    .text.__NVIC_DisableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000a29c   0x00000020   Code   RO        36971    .text.__NVIC_EnableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000a2bc   0x00000010   Code   RO        37275    .text.__NVIC_EnableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000a2cc   0x00000010   Code   RO        37607    .text.__NVIC_EnableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000a2dc   0x00000010   Code   RO        34154    .text.__NVIC_GetPriorityGrouping  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000a2ec   0x00000010   Code   RO        37293    .text.__NVIC_SetPendingIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000a2fc   0x00000010   Code   RO        37599    .text.__NVIC_SetPendingIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000a30c   0x00000012   Code   RO        36969    .text.__NVIC_SetVector  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000a31e   0x00000002   PAD
-    0x0000a320   0x00000018   Code   RO        37271    .text.__NVIC_SetVector  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000a338   0x00000018   Code   RO        37575    .text.__NVIC_SetVector  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000a350   0x00000004   Code   RO        33361    .text.__cxa_atexit  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a354   0x00000068   Code   RO        33381    .text.__cxa_guard_acquire  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a3bc   0x00000030   Code   RO        33387    .text.__cxa_guard_release  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a3ec   0x00000028   Code   RO        38096    .text.__cxa_pure_virtual  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\libcxx\libcppabi_w.l(cxa_virtual.cpp.o)
-    0x0000a414   0x00000010   Code   RO          287    .text.__cxx_global_var_init  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a424   0x00000010   Code   RO          289    .text.__cxx_global_var_init.1  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a434   0x00000010   Code   RO          291    .text.__cxx_global_var_init.2  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a444   0x00000010   Code   RO          293    .text.__cxx_global_var_init.3  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a454   0x0000003e   Code   RO          295    .text.__cxx_global_var_init.4  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a492   0x00000002   PAD
-    0x0000a494   0x00000014   Code   RO          297    .text.__cxx_global_var_init.5  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a4a8   0x00000014   Code   RO          299    .text.__cxx_global_var_init.6  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a4bc   0x0000004c   Code   RO          301    .text.__cxx_global_var_init.7  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a508   0x00000032   Code   RO          303    .text.__cxx_global_var_init.8  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a53a   0x00000002   PAD
-    0x0000a53c   0x00000036   Code   RO          305    .text.__cxx_global_var_init.9  BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000a572   0x00000002   PAD
-    0x0000a574   0x00000054   Code   RO        33751    .text.__rt_entry    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000a5c8   0x00000052   Code   RO        33755    .text.__user_perthread_libspace  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000a61a   0x00000002   PAD
-    0x0000a61c   0x00000026   Code   RO        32166    .text._gpio_init_in  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
-    0x0000a642   0x00000002   PAD
-    0x0000a644   0x00000036   Code   RO        32172    .text._gpio_init_out  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
-    0x0000a67a   0x00000002   PAD
-    0x0000a67c   0x0000001c   Code   RO        33761    .text._mutex_acquire  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000a698   0x00000042   Code   RO        33765    .text._mutex_free   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000a6da   0x00000002   PAD
-    0x0000a6dc   0x000000a4   Code   RO        33759    .text._mutex_initialize  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000a780   0x00000018   Code   RO        33763    .text._mutex_release  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000a798   0x00000004   Code   RO        34187    .text._platform_post_stackheap_init  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x0000a79c   0x00000004   Code   RO        33287    .text._sys_close    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a7a0   0x00000002   Code   RO        33295    .text._sys_exit     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a7a2   0x00000002   PAD
-    0x0000a7a4   0x00000028   Code   RO        33315    .text._sys_flen     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a7cc   0x00000004   Code   RO        33303    .text._sys_istty    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a7d0   0x0000006c   Code   RO        33279    .text._sys_open     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a83c   0x00000006   Code   RO        33305    .text._sys_seek     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a842   0x00000002   PAD
-    0x0000a844   0x00000098   Code   RO        33291    .text._sys_write    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a8dc   0x00000032   Code   RO        32265    .text._ticker_match_interval_passed  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000a90e   0x00000002   PAD
-    0x0000a910   0x00000018   Code   RO        33297    .text._ttywrch      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000a928   0x0000001e   Code   RO        33534    .text._wait_us_generic  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_no_rtos.o
-    0x0000a946   0x00000002   PAD
-    0x0000a948   0x00000016   Code   RO        33528    .text._wait_us_inline  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_no_rtos.o
-    0x0000a95e   0x00000002   PAD
-    0x0000a960   0x00000018   Code   RO        33530    .text._wait_us_ticks  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_no_rtos.o
-    0x0000a978   0x00000004   Code   RO        38355    .text.abort_message  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\libcxx\libcppabi_w.l(abort_message.cpp.o)
-    0x0000a97c   0x0000000c   Code   RO        32135    .text.are_interrupts_enabled  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_critical_section_api.o
-    0x0000a988   0x00000026   Code   RO        34622    .text.atomic_chk32_all  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000a9ae   0x00000002   PAD
-    0x0000a9b0   0x00000022   Code   RO        34624    .text.atomic_chk32_any  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000a9d2   0x00000002   PAD
-    0x0000a9d4   0x0000001a   Code   RO        34454    .text.atomic_dec16_nz  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000a180   0x00000024   Code   RO        33198    .text._ZNK4mbed8internal18timed_predicate_op14wake_conditionEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_os_timer.o
+    0x0000a1a4   0x00000006   Code   RO        32723    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE13wake_time_setEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x0000a1aa   0x00000002   PAD
+    0x0000a1ac   0x00000052   Code   RO        32743    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE14_elapsed_ticksEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x0000a1fe   0x00000002   PAD
+    0x0000a200   0x00000006   Code   RO        32721    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE16wake_time_passedEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x0000a206   0x00000002   PAD
+    0x0000a208   0x00000006   Code   RO        32739    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE20unacknowledged_ticksEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x0000a20e   0x00000002   PAD
+    0x0000a210   0x00000006   Code   RO        32741    .text._ZNK4mbed8internal8SysTimerILj1000ELb1EE8get_tickEv  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x0000a216   0x00000002   PAD
+    0x0000a218   0x00000008   Code   RO         2291    .text._ZThn292_N4mbed6Serial4lockEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a220   0x00000008   Code   RO         2283    .text._ZThn292_N4mbed6Serial5_getcEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a228   0x00000008   Code   RO         2287    .text._ZThn292_N4mbed6Serial5_putcEi  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a230   0x00000008   Code   RO         2295    .text._ZThn292_N4mbed6Serial6unlockEv  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a238   0x00000008   Code   RO         2310    .text._ZThn292_N4mbed6SerialD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a240   0x00000008   Code   RO         2308    .text._ZThn292_N4mbed6SerialD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a248   0x00000008   Code   RO         2334    .text._ZThn296_N4mbed6SerialD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a250   0x00000008   Code   RO         2332    .text._ZThn296_N4mbed6SerialD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x0000a258   0x00000004   Code   RO        32637    .text._ZThn4_N4mbed6StreamD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
+    0x0000a25c   0x00000006   Code   RO        32633    .text._ZThn4_N4mbed6StreamD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
+    0x0000a262   0x00000002   PAD
+    0x0000a264   0x00000006   Code   RO        32690    .text._ZThn4_N4mbed8FileLikeD0Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
+    0x0000a26a   0x00000002   PAD
+    0x0000a26c   0x00000006   Code   RO        32688    .text._ZThn4_N4mbed8FileLikeD1Ev  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
+    0x0000a272   0x00000002   PAD
+    0x0000a274   0x00000004   Code   RO        33403    .text._ZdaPv        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a278   0x00000004   Code   RO        33399    .text._ZdlPv        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a27c   0x00000048   Code   RO        33393    .text._Znaj         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a2c4   0x00000010   Code   RO        37573    .text.__NVIC_ClearPendingIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000a2d4   0x00000028   Code   RO        36973    .text.__NVIC_DisableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000a2fc   0x00000018   Code   RO        37297    .text.__NVIC_DisableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000a314   0x00000018   Code   RO        37605    .text.__NVIC_DisableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000a32c   0x00000020   Code   RO        36971    .text.__NVIC_EnableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000a34c   0x00000010   Code   RO        37275    .text.__NVIC_EnableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000a35c   0x00000010   Code   RO        37607    .text.__NVIC_EnableIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000a36c   0x00000010   Code   RO        34154    .text.__NVIC_GetPriorityGrouping  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000a37c   0x00000010   Code   RO        37293    .text.__NVIC_SetPendingIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000a38c   0x00000010   Code   RO        37599    .text.__NVIC_SetPendingIRQ  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000a39c   0x00000012   Code   RO        36969    .text.__NVIC_SetVector  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000a3ae   0x00000002   PAD
+    0x0000a3b0   0x00000018   Code   RO        37271    .text.__NVIC_SetVector  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000a3c8   0x00000018   Code   RO        37575    .text.__NVIC_SetVector  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000a3e0   0x00000004   Code   RO        33361    .text.__cxa_atexit  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a3e4   0x00000068   Code   RO        33381    .text.__cxa_guard_acquire  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a44c   0x00000030   Code   RO        33387    .text.__cxa_guard_release  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a47c   0x00000028   Code   RO        38096    .text.__cxa_pure_virtual  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\libcxx\libcppabi_w.l(cxa_virtual.cpp.o)
+    0x0000a4a4   0x00000010   Code   RO          287    .text.__cxx_global_var_init  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a4b4   0x00000010   Code   RO          289    .text.__cxx_global_var_init.1  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a4c4   0x00000010   Code   RO          291    .text.__cxx_global_var_init.2  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a4d4   0x00000010   Code   RO          293    .text.__cxx_global_var_init.3  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a4e4   0x0000003e   Code   RO          295    .text.__cxx_global_var_init.4  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a522   0x00000002   PAD
+    0x0000a524   0x00000014   Code   RO          297    .text.__cxx_global_var_init.5  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a538   0x00000014   Code   RO          299    .text.__cxx_global_var_init.6  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a54c   0x0000004c   Code   RO          301    .text.__cxx_global_var_init.7  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a598   0x00000032   Code   RO          303    .text.__cxx_global_var_init.8  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a5ca   0x00000002   PAD
+    0x0000a5cc   0x00000036   Code   RO          305    .text.__cxx_global_var_init.9  BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000a602   0x00000002   PAD
+    0x0000a604   0x00000054   Code   RO        33751    .text.__rt_entry    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000a658   0x00000052   Code   RO        33755    .text.__user_perthread_libspace  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000a6aa   0x00000002   PAD
+    0x0000a6ac   0x00000026   Code   RO        32166    .text._gpio_init_in  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
+    0x0000a6d2   0x00000002   PAD
+    0x0000a6d4   0x00000036   Code   RO        32172    .text._gpio_init_out  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
+    0x0000a70a   0x00000002   PAD
+    0x0000a70c   0x0000001c   Code   RO        33761    .text._mutex_acquire  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000a728   0x00000042   Code   RO        33765    .text._mutex_free   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000a76a   0x00000002   PAD
+    0x0000a76c   0x000000a4   Code   RO        33759    .text._mutex_initialize  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000a810   0x00000018   Code   RO        33763    .text._mutex_release  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000a828   0x00000004   Code   RO        34187    .text._platform_post_stackheap_init  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x0000a82c   0x00000004   Code   RO        33287    .text._sys_close    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a830   0x00000002   Code   RO        33295    .text._sys_exit     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a832   0x00000002   PAD
+    0x0000a834   0x00000028   Code   RO        33315    .text._sys_flen     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a85c   0x00000004   Code   RO        33303    .text._sys_istty    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a860   0x0000006c   Code   RO        33279    .text._sys_open     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a8cc   0x00000006   Code   RO        33305    .text._sys_seek     BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a8d2   0x00000002   PAD
+    0x0000a8d4   0x00000098   Code   RO        33291    .text._sys_write    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a96c   0x00000032   Code   RO        32265    .text._ticker_match_interval_passed  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000a99e   0x00000002   PAD
+    0x0000a9a0   0x00000018   Code   RO        33297    .text._ttywrch      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000a9b8   0x0000001e   Code   RO        33534    .text._wait_us_generic  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_no_rtos.o
+    0x0000a9d6   0x00000002   PAD
+    0x0000a9d8   0x00000016   Code   RO        33528    .text._wait_us_inline  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_no_rtos.o
     0x0000a9ee   0x00000002   PAD
-    0x0000a9f0   0x00000024   Code   RO        34505    .text.atomic_dec16_nz  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000aa14   0x00000010   Code   RO        34239    .text.atomic_dec32  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000aa24   0x0000001a   Code   RO        34360    .text.atomic_dec32_nz  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000a9f0   0x00000018   Code   RO        33530    .text._wait_us_ticks  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_no_rtos.o
+    0x0000aa08   0x00000004   Code   RO        38355    .text.abort_message  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\libcxx\libcppabi_w.l(abort_message.cpp.o)
+    0x0000aa0c   0x0000000c   Code   RO        32135    .text.are_interrupts_enabled  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_critical_section_api.o
+    0x0000aa18   0x00000026   Code   RO        34622    .text.atomic_chk32_all  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
     0x0000aa3e   0x00000002   PAD
-    0x0000aa40   0x0000001a   Code   RO        34507    .text.atomic_inc16_lim  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000aa5a   0x00000002   PAD
-    0x0000aa5c   0x0000001e   Code   RO        34466    .text.atomic_inc16_lt  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000aa7a   0x00000002   PAD
-    0x0000aa7c   0x00000028   Code   RO        34511    .text.atomic_inc16_lt  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000aaa4   0x00000010   Code   RO        34233    .text.atomic_inc32  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000aab4   0x00000010   Code   RO        34348    .text.atomic_inc32  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000aac4   0x0000001a   Code   RO        34231    .text.atomic_link_get  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000aade   0x00000002   PAD
-    0x0000aae0   0x0000001e   Code   RO        34237    .text.atomic_link_put  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000aafe   0x00000002   PAD
-    0x0000ab00   0x00000012   Code   RO        34362    .text.atomic_wr8    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000ab12   0x00000002   PAD
-    0x0000ab14   0x0000003a   Code   RO        33289    .text.close         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000ab4e   0x00000002   PAD
-    0x0000ab50   0x000000ac   Code   RO        32297    .text.compute_tick_round_up  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000abfc   0x0000000c   Code   RO        33032    .text.core_util_are_interrupts_enabled  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
-    0x0000ac08   0x00000012   Code   RO        32925    .text.core_util_atomic_decr_u16  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
-    0x0000ac1a   0x00000002   PAD
-    0x0000ac1c   0x00000012   Code   RO        32923    .text.core_util_atomic_decr_u8  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
-    0x0000ac2e   0x00000002   PAD
-    0x0000ac30   0x0000000c   Code   RO        32911    .text.core_util_atomic_exchange_u8  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
-    0x0000ac3c   0x00000016   Code   RO        32909    .text.core_util_atomic_flag_test_and_set  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
-    0x0000ac52   0x00000002   PAD
-    0x0000ac54   0x00000012   Code   RO        32919    .text.core_util_atomic_incr_u16  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
-    0x0000ac66   0x00000002   PAD
-    0x0000ac68   0x00000016   Code   RO        32971    .text.core_util_atomic_load_u64  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
-    0x0000ac7e   0x00000002   PAD
-    0x0000ac80   0x00000084   Code   RO        33038    .text.core_util_critical_section_enter  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
-    0x0000ad04   0x0000001c   Code   RO        33040    .text.core_util_critical_section_exit  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
-    0x0000ad20   0x0000000c   Code   RO        33034    .text.core_util_is_isr_active  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
-    0x0000ad2c   0x0000001c   Code   RO        33852    .text.error_msg     BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x0000ad48   0x0000002e   Code   RO        33357    .text.exit          BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000ad76   0x00000002   PAD
-    0x0000ad78   0x0000002e   Code   RO        33269    .text.fdopen        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000ada6   0x00000002   PAD
-    0x0000ada8   0x0000002a   Code   RO        33313    .text.fsync         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000add2   0x00000002   PAD
-    0x0000add4   0x0000000a   Code   RO        32198    .text.get_lp_ticker_data  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
-    0x0000adde   0x00000002   PAD
-    0x0000ade0   0x0000000a   Code   RO        32308    .text.get_us_ticker_data  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
-    0x0000adea   0x00000002   PAD
-    0x0000adec   0x00000052   Code   RO        37443    .text.gpio_dir      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x0000ae3e   0x00000002   PAD
-    0x0000ae40   0x00000010   Code   RO        37439    .text.gpio_init     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x0000ae50   0x00000036   Code   RO        32174    .text.gpio_init_inout  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
-    0x0000ae86   0x00000002   PAD
-    0x0000ae88   0x00000006   Code   RO        32168    .text.gpio_init_out  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
-    0x0000ae8e   0x00000002   PAD
-    0x0000ae90   0x00000008   Code   RO        32170    .text.gpio_init_out_ex  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
-    0x0000ae98   0x00000006   Code   RO        37441    .text.gpio_mode     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x0000ae9e   0x00000002   PAD
-    0x0000aea0   0x00000032   Code   RO        37449    .text.gpio_read     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x0000aed2   0x00000002   PAD
-    0x0000aed4   0x00000036   Code   RO        37445    .text.gpio_write    BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x0000af0a   0x00000002   PAD
-    0x0000af0c   0x0000002c   Code   RO        32133    .text.hal_critical_section_enter  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_critical_section_api.o
-    0x0000af38   0x0000007c   Code   RO        32137    .text.hal_critical_section_exit  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_critical_section_api.o
-    0x0000afb4   0x00000016   Code   RO        37690    .text.hal_sleep     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/sleep.o
-    0x0000afca   0x00000002   PAD
-    0x0000afcc   0x000000f6   Code   RO        33054    .text.handle_error  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000b0c2   0x00000002   PAD
-    0x0000b0c4   0x00000030   Code   RO        37520    .text.i2c_frequency  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x0000b0f4   0x00000108   Code   RO        37514    .text.i2c_init      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x0000b1fc   0x0000006c   Code   RO        37522    .text.i2c_read      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x0000b268   0x0000001c   Code   RO        37518    .text.i2c_stop      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x0000b284   0x0000009a   Code   RO        37524    .text.i2c_write     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x0000b31e   0x00000002   PAD
-    0x0000b320   0x00000150   Code   RO        32269    .text.initialize    BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000b470   0x00000026   Code   RO        33271    .text.isatty        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000b496   0x00000002   PAD
-    0x0000b498   0x00000028   Code   RO        34251    .text.isrRtxMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000b4c0   0x00000046   Code   RO        34255    .text.isrRtxMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000b506   0x00000002   PAD
-    0x0000b508   0x00000064   Code   RO        34316    .text.isrRtxMessageQueueGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000b56c   0x00000070   Code   RO        34312    .text.isrRtxMessageQueuePut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000b5dc   0x0000004c   Code   RO        34438    .text.isrRtxSemaphoreRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000b628   0x00000032   Code   RO        34487    .text.isr_queue_get  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000b65a   0x00000002   PAD
-    0x0000b65c   0x00000032   Code   RO        34501    .text.isr_queue_put  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000b68e   0x00000002   PAD
-    0x0000b690   0x00000004   Code   RO        37601    .text.lp_ticker_clear_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b694   0x00000004   Code   RO        37581    .text.lp_ticker_disable_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b698   0x00000004   Code   RO        37597    .text.lp_ticker_fire_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b69c   0x0000000e   Code   RO        37603    .text.lp_ticker_free  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b6aa   0x00000002   PAD
-    0x0000b6ac   0x0000000a   Code   RO        37565    .text.lp_ticker_get_info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b6b6   0x00000002   PAD
-    0x0000b6b8   0x00000052   Code   RO        37567    .text.lp_ticker_init  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b70a   0x00000002   PAD
-    0x0000b70c   0x0000001a   Code   RO        32202    .text.lp_ticker_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
-    0x0000b726   0x00000002   PAD
-    0x0000b728   0x00000008   Code   RO        37583    .text.lp_ticker_read  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b730   0x0000001e   Code   RO        37587    .text.lp_ticker_set_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b74e   0x00000002   PAD
-    0x0000b750   0x0000000e   Code   RO        37577    .text.lptmr_isr     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x0000b75e   0x00000002   PAD
-    0x0000b760   0x00000030   Code   RO        33307    .text.lseek         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000b790   0x000001b4   Code   RO          321    .text.main          BUILD/HEXIWEAR/ARMC6/main.o
-    0x0000b944   0x00000016   Code   RO        32899    .text.mbed_assert_internal  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_assert.o
-    0x0000b95a   0x00000002   PAD
-    0x0000b95c   0x0000002c   Code   RO        33782    .text.mbed_cpy_nvic  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
-    0x0000b988   0x0000006c   Code   RO        33012    .text.mbed_die      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x0000b9f4   0x00000036   Code   RO        33074    .text.mbed_error    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000ba2a   0x00000002   PAD
-    0x0000ba2c   0x00000004   Code   RO        33062    .text.mbed_error_initialize  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000ba30   0x00000020   Code   RO        33014    .text.mbed_error_printf  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x0000ba50   0x0000002a   Code   RO        33018    .text.mbed_error_puts  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x0000ba7a   0x00000002   PAD
-    0x0000ba7c   0x00000034   Code   RO        33016    .text.mbed_error_vprintf  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
-    0x0000bab0   0x0000012c   Code   RO        32855    .text.mbed_fault_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x0000bbdc   0x0000000c   Code   RO        33070    .text.mbed_get_error_in_progress  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000bbe8   0x00000038   Code   RO        33058    .text.mbed_halt_system  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000bc20   0x00000012   Code   RO        33780    .text.mbed_init     BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
-    0x0000bc32   0x00000002   PAD
-    0x0000bc34   0x00000002   Code   RO        33788    .text.mbed_main     BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
-    0x0000bc36   0x00000002   PAD
-    0x0000bc38   0x00000004   Code   RO        33803    .text.mbed_rtos_init  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtos_rtx.o
-    0x0000bc3c   0x000000ec   Code   RO        33805    .text.mbed_rtos_start  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtos_rtx.o
-    0x0000bd28   0x0000004e   Code   RO        34922    .text.mbed_sdk_init  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/mbed_overrides.o
-    0x0000bd76   0x00000002   PAD
-    0x0000bd78   0x00000016   Code   RO        33786    .text.mbed_start    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
-    0x0000bd8e   0x00000002   PAD
-    0x0000bd90   0x0000001a   Code   RO        33753    .text.mbed_toolchain_init  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000bdaa   0x00000002   PAD
-    0x0000bdac   0x00000018   Code   RO        33092    .text.name_or_unnamed  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000bdc4   0x00000010   Code   RO        32316    .text.note_us_ticker_free  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
-    0x0000bdd4   0x00000014   Code   RO        32314    .text.note_us_ticker_init  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
-    0x0000bde8   0x0000007c   Code   RO        33281    .text.open          BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000be64   0x0000002c   Code   RO        33978    .text.osDelay       BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_delay.o
-    0x0000be90   0x00000028   Code   RO        34114    .text.osKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000beb8   0x0000002c   Code   RO        34102    .text.osKernelInitialize  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000bee4   0x0000002a   Code   RO        34128    .text.osKernelResume  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000bf0e   0x00000002   PAD
-    0x0000bf10   0x00000028   Code   RO        34118    .text.osKernelStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000bf38   0x00000026   Code   RO        34126    .text.osKernelSuspend  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000bf5e   0x00000002   PAD
-    0x0000bf60   0x0000002e   Code   RO        34249    .text.osMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000bf8e   0x00000002   PAD
-    0x0000bf90   0x0000002e   Code   RO        34273    .text.osMemoryPoolDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000bfbe   0x00000002   PAD
-    0x0000bfc0   0x0000002e   Code   RO        34253    .text.osMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000bfee   0x00000002   PAD
-    0x0000bff0   0x00000036   Code   RO        34241    .text.osMemoryPoolNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c026   0x00000002   PAD
-    0x0000c028   0x0000002e   Code   RO        34336    .text.osMessageQueueDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c056   0x00000002   PAD
-    0x0000c058   0x00000040   Code   RO        34314    .text.osMessageQueueGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c098   0x00000036   Code   RO        34302    .text.osMessageQueueNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000aa40   0x00000022   Code   RO        34624    .text.atomic_chk32_any  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000aa62   0x00000002   PAD
+    0x0000aa64   0x0000001a   Code   RO        34454    .text.atomic_dec16_nz  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000aa7e   0x00000002   PAD
+    0x0000aa80   0x00000024   Code   RO        34505    .text.atomic_dec16_nz  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000aaa4   0x00000010   Code   RO        34239    .text.atomic_dec32  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000aab4   0x0000001a   Code   RO        34360    .text.atomic_dec32_nz  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000aace   0x00000002   PAD
+    0x0000aad0   0x0000001a   Code   RO        34507    .text.atomic_inc16_lim  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000aaea   0x00000002   PAD
+    0x0000aaec   0x0000001e   Code   RO        34466    .text.atomic_inc16_lt  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000ab0a   0x00000002   PAD
+    0x0000ab0c   0x00000028   Code   RO        34511    .text.atomic_inc16_lt  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000ab34   0x00000010   Code   RO        34233    .text.atomic_inc32  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000ab44   0x00000010   Code   RO        34348    .text.atomic_inc32  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000ab54   0x0000001a   Code   RO        34231    .text.atomic_link_get  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000ab6e   0x00000002   PAD
+    0x0000ab70   0x0000001e   Code   RO        34237    .text.atomic_link_put  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000ab8e   0x00000002   PAD
+    0x0000ab90   0x00000012   Code   RO        34362    .text.atomic_wr8    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000aba2   0x00000002   PAD
+    0x0000aba4   0x0000003a   Code   RO        33289    .text.close         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000abde   0x00000002   PAD
+    0x0000abe0   0x000000ac   Code   RO        32297    .text.compute_tick_round_up  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000ac8c   0x0000000c   Code   RO        33032    .text.core_util_are_interrupts_enabled  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
+    0x0000ac98   0x00000012   Code   RO        32925    .text.core_util_atomic_decr_u16  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
+    0x0000acaa   0x00000002   PAD
+    0x0000acac   0x00000012   Code   RO        32923    .text.core_util_atomic_decr_u8  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
+    0x0000acbe   0x00000002   PAD
+    0x0000acc0   0x0000000c   Code   RO        32911    .text.core_util_atomic_exchange_u8  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
+    0x0000accc   0x00000016   Code   RO        32909    .text.core_util_atomic_flag_test_and_set  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
+    0x0000ace2   0x00000002   PAD
+    0x0000ace4   0x00000012   Code   RO        32919    .text.core_util_atomic_incr_u16  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
+    0x0000acf6   0x00000002   PAD
+    0x0000acf8   0x00000016   Code   RO        32971    .text.core_util_atomic_load_u64  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_atomic_impl.o
+    0x0000ad0e   0x00000002   PAD
+    0x0000ad10   0x00000084   Code   RO        33038    .text.core_util_critical_section_enter  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
+    0x0000ad94   0x0000001c   Code   RO        33040    .text.core_util_critical_section_exit  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
+    0x0000adb0   0x0000000c   Code   RO        33034    .text.core_util_is_isr_active  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_critical.o
+    0x0000adbc   0x0000001c   Code   RO        33852    .text.error_msg     BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x0000add8   0x0000002e   Code   RO        33357    .text.exit          BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000ae06   0x00000002   PAD
+    0x0000ae08   0x0000002e   Code   RO        33269    .text.fdopen        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000ae36   0x00000002   PAD
+    0x0000ae38   0x0000002a   Code   RO        33313    .text.fsync         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000ae62   0x00000002   PAD
+    0x0000ae64   0x0000000a   Code   RO        32198    .text.get_lp_ticker_data  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
+    0x0000ae6e   0x00000002   PAD
+    0x0000ae70   0x0000000a   Code   RO        32308    .text.get_us_ticker_data  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
+    0x0000ae7a   0x00000002   PAD
+    0x0000ae7c   0x00000052   Code   RO        37443    .text.gpio_dir      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x0000aece   0x00000002   PAD
+    0x0000aed0   0x00000010   Code   RO        37439    .text.gpio_init     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x0000aee0   0x00000036   Code   RO        32174    .text.gpio_init_inout  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
+    0x0000af16   0x00000002   PAD
+    0x0000af18   0x00000006   Code   RO        32168    .text.gpio_init_out  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
+    0x0000af1e   0x00000002   PAD
+    0x0000af20   0x00000008   Code   RO        32170    .text.gpio_init_out_ex  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_gpio.o
+    0x0000af28   0x00000006   Code   RO        37441    .text.gpio_mode     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x0000af2e   0x00000002   PAD
+    0x0000af30   0x00000032   Code   RO        37449    .text.gpio_read     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x0000af62   0x00000002   PAD
+    0x0000af64   0x00000036   Code   RO        37445    .text.gpio_write    BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x0000af9a   0x00000002   PAD
+    0x0000af9c   0x0000002c   Code   RO        32133    .text.hal_critical_section_enter  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_critical_section_api.o
+    0x0000afc8   0x0000007c   Code   RO        32137    .text.hal_critical_section_exit  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_critical_section_api.o
+    0x0000b044   0x00000016   Code   RO        37690    .text.hal_sleep     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/sleep.o
+    0x0000b05a   0x00000002   PAD
+    0x0000b05c   0x000000f6   Code   RO        33054    .text.handle_error  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000b152   0x00000002   PAD
+    0x0000b154   0x00000030   Code   RO        37520    .text.i2c_frequency  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x0000b184   0x00000108   Code   RO        37514    .text.i2c_init      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x0000b28c   0x0000006c   Code   RO        37522    .text.i2c_read      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x0000b2f8   0x0000001c   Code   RO        37518    .text.i2c_stop      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x0000b314   0x0000009a   Code   RO        37524    .text.i2c_write     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x0000b3ae   0x00000002   PAD
+    0x0000b3b0   0x00000150   Code   RO        32269    .text.initialize    BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000b500   0x00000026   Code   RO        33271    .text.isatty        BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000b526   0x00000002   PAD
+    0x0000b528   0x00000028   Code   RO        34251    .text.isrRtxMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000b550   0x00000046   Code   RO        34255    .text.isrRtxMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000b596   0x00000002   PAD
+    0x0000b598   0x00000064   Code   RO        34316    .text.isrRtxMessageQueueGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000b5fc   0x00000070   Code   RO        34312    .text.isrRtxMessageQueuePut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000b66c   0x0000004c   Code   RO        34438    .text.isrRtxSemaphoreRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000b6b8   0x00000032   Code   RO        34487    .text.isr_queue_get  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000b6ea   0x00000002   PAD
+    0x0000b6ec   0x00000032   Code   RO        34501    .text.isr_queue_put  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000b71e   0x00000002   PAD
+    0x0000b720   0x00000004   Code   RO        37601    .text.lp_ticker_clear_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b724   0x00000004   Code   RO        37581    .text.lp_ticker_disable_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b728   0x00000004   Code   RO        37597    .text.lp_ticker_fire_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b72c   0x0000000e   Code   RO        37603    .text.lp_ticker_free  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b73a   0x00000002   PAD
+    0x0000b73c   0x0000000a   Code   RO        37565    .text.lp_ticker_get_info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b746   0x00000002   PAD
+    0x0000b748   0x00000052   Code   RO        37567    .text.lp_ticker_init  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b79a   0x00000002   PAD
+    0x0000b79c   0x0000001a   Code   RO        32202    .text.lp_ticker_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
+    0x0000b7b6   0x00000002   PAD
+    0x0000b7b8   0x00000008   Code   RO        37583    .text.lp_ticker_read  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b7c0   0x0000001e   Code   RO        37587    .text.lp_ticker_set_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b7de   0x00000002   PAD
+    0x0000b7e0   0x0000000e   Code   RO        37577    .text.lptmr_isr     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x0000b7ee   0x00000002   PAD
+    0x0000b7f0   0x00000030   Code   RO        33307    .text.lseek         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000b820   0x000001cc   Code   RO          321    .text.main          BUILD/HEXIWEAR/ARMC6/main.o
+    0x0000b9ec   0x00000016   Code   RO        32899    .text.mbed_assert_internal  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_assert.o
+    0x0000ba02   0x00000002   PAD
+    0x0000ba04   0x0000002c   Code   RO        33782    .text.mbed_cpy_nvic  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
+    0x0000ba30   0x0000006c   Code   RO        33012    .text.mbed_die      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x0000ba9c   0x00000036   Code   RO        33074    .text.mbed_error    BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000bad2   0x00000002   PAD
+    0x0000bad4   0x00000004   Code   RO        33062    .text.mbed_error_initialize  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000bad8   0x00000020   Code   RO        33014    .text.mbed_error_printf  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x0000baf8   0x0000002a   Code   RO        33018    .text.mbed_error_puts  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x0000bb22   0x00000002   PAD
+    0x0000bb24   0x00000034   Code   RO        33016    .text.mbed_error_vprintf  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_board.o
+    0x0000bb58   0x0000012c   Code   RO        32855    .text.mbed_fault_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x0000bc84   0x0000000c   Code   RO        33070    .text.mbed_get_error_in_progress  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000bc90   0x00000038   Code   RO        33058    .text.mbed_halt_system  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000bcc8   0x00000012   Code   RO        33780    .text.mbed_init     BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
+    0x0000bcda   0x00000002   PAD
+    0x0000bcdc   0x00000002   Code   RO        33788    .text.mbed_main     BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
+    0x0000bcde   0x00000002   PAD
+    0x0000bce0   0x00000004   Code   RO        33803    .text.mbed_rtos_init  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtos_rtx.o
+    0x0000bce4   0x000000ec   Code   RO        33805    .text.mbed_rtos_start  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtos_rtx.o
+    0x0000bdd0   0x0000004e   Code   RO        34922    .text.mbed_sdk_init  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/mbed_overrides.o
+    0x0000be1e   0x00000002   PAD
+    0x0000be20   0x00000016   Code   RO        33786    .text.mbed_start    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_boot.o
+    0x0000be36   0x00000002   PAD
+    0x0000be38   0x0000001a   Code   RO        33753    .text.mbed_toolchain_init  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000be52   0x00000002   PAD
+    0x0000be54   0x00000018   Code   RO        33092    .text.name_or_unnamed  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000be6c   0x00000010   Code   RO        32316    .text.note_us_ticker_free  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
+    0x0000be7c   0x00000014   Code   RO        32314    .text.note_us_ticker_init  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
+    0x0000be90   0x0000007c   Code   RO        33281    .text.open          BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000bf0c   0x0000002c   Code   RO        33978    .text.osDelay       BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_delay.o
+    0x0000bf38   0x00000028   Code   RO        34114    .text.osKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000bf60   0x0000002c   Code   RO        34102    .text.osKernelInitialize  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000bf8c   0x0000002a   Code   RO        34128    .text.osKernelResume  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000bfb6   0x00000002   PAD
+    0x0000bfb8   0x00000028   Code   RO        34118    .text.osKernelStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000bfe0   0x00000026   Code   RO        34126    .text.osKernelSuspend  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000c006   0x00000002   PAD
+    0x0000c008   0x0000002e   Code   RO        34249    .text.osMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c036   0x00000002   PAD
+    0x0000c038   0x0000002e   Code   RO        34273    .text.osMemoryPoolDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c066   0x00000002   PAD
+    0x0000c068   0x0000002e   Code   RO        34253    .text.osMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c096   0x00000002   PAD
+    0x0000c098   0x00000036   Code   RO        34241    .text.osMemoryPoolNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
     0x0000c0ce   0x00000002   PAD
-    0x0000c0d0   0x00000040   Code   RO        34310    .text.osMessageQueuePut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c110   0x00000032   Code   RO        34391    .text.osMutexAcquire  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c142   0x00000002   PAD
-    0x0000c144   0x0000002e   Code   RO        34397    .text.osMutexDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c172   0x00000002   PAD
-    0x0000c174   0x0000002e   Code   RO        34383    .text.osMutexNew    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c1a2   0x00000002   PAD
-    0x0000c1a4   0x0000002e   Code   RO        34393    .text.osMutexRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c1d2   0x00000002   PAD
-    0x0000c1d4   0x00000104   Code   RO        33826    .text.osRtxErrorNotify  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x0000c2d8   0x00000002   Code   RO        34491    .text.osRtxEventFlagsObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000c2da   0x00000002   PAD
-    0x0000c2dc   0x00000004   Code   RO        33824    .text.osRtxIdleThread  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x0000c2e0   0x0000000c   Code   RO        34483    .text.osRtxKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000c2ec   0x0000000c   Code   RO        34548    .text.osRtxKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c2f8   0x00000002   Code   RO        34100    .text.osRtxKernelPreInit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000c2fa   0x00000002   PAD
-    0x0000c2fc   0x0000000c   Code   RO        34148    .text.osRtxKernelState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000c308   0x0000009c   Code   RO        34214    .text.osRtxMemoryAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_memory.o
-    0x0000c3a4   0x00000068   Code   RO        34216    .text.osRtxMemoryFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_memory.o
-    0x0000c40c   0x00000052   Code   RO        34208    .text.osRtxMemoryInit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_memory.o
-    0x0000c45e   0x00000002   PAD
-    0x0000c460   0x00000020   Code   RO        34229    .text.osRtxMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c480   0x0000002a   Code   RO        34235    .text.osRtxMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c4aa   0x00000002   PAD
-    0x0000c4ac   0x00000002   Code   RO        34283    .text.osRtxMemoryPoolId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c4ae   0x00000002   PAD
-    0x0000c4b0   0x00000054   Code   RO        34227    .text.osRtxMemoryPoolInit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c504   0x00000002   Code   RO        34495    .text.osRtxMemoryPoolObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c0d0   0x0000002e   Code   RO        34336    .text.osMessageQueueDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000c0fe   0x00000002   PAD
+    0x0000c100   0x00000040   Code   RO        34314    .text.osMessageQueueGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000c140   0x00000036   Code   RO        34302    .text.osMessageQueueNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000c176   0x00000002   PAD
+    0x0000c178   0x00000040   Code   RO        34310    .text.osMessageQueuePut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000c1b8   0x00000032   Code   RO        34391    .text.osMutexAcquire  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000c1ea   0x00000002   PAD
+    0x0000c1ec   0x0000002e   Code   RO        34397    .text.osMutexDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000c21a   0x00000002   PAD
+    0x0000c21c   0x0000002e   Code   RO        34383    .text.osMutexNew    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000c24a   0x00000002   PAD
+    0x0000c24c   0x0000002e   Code   RO        34393    .text.osMutexRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000c27a   0x00000002   PAD
+    0x0000c27c   0x00000104   Code   RO        33826    .text.osRtxErrorNotify  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x0000c380   0x00000002   Code   RO        34491    .text.osRtxEventFlagsObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c382   0x00000002   PAD
+    0x0000c384   0x00000004   Code   RO        33824    .text.osRtxIdleThread  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x0000c388   0x0000000c   Code   RO        34483    .text.osRtxKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c394   0x0000000c   Code   RO        34548    .text.osRtxKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c3a0   0x00000002   Code   RO        34100    .text.osRtxKernelPreInit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000c3a2   0x00000002   PAD
+    0x0000c3a4   0x0000000c   Code   RO        34148    .text.osRtxKernelState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000c3b0   0x0000009c   Code   RO        34214    .text.osRtxMemoryAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_memory.o
+    0x0000c44c   0x00000068   Code   RO        34216    .text.osRtxMemoryFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_memory.o
+    0x0000c4b4   0x00000052   Code   RO        34208    .text.osRtxMemoryInit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_memory.o
     0x0000c506   0x00000002   PAD
-    0x0000c508   0x00000030   Code   RO        34277    .text.osRtxMemoryPoolPostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c538   0x00000002   Code   RO        34497    .text.osRtxMessageObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000c53a   0x00000002   PAD
-    0x0000c53c   0x00000002   Code   RO        34352    .text.osRtxMessageQueueId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c53e   0x00000002   PAD
-    0x0000c540   0x00000002   Code   RO        34693    .text.osRtxMessageQueueId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000c542   0x00000002   PAD
-    0x0000c544   0x000000d0   Code   RO        34340    .text.osRtxMessageQueuePostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c614   0x00000002   Code   RO        34403    .text.osRtxMutexId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c616   0x00000002   PAD
-    0x0000c618   0x0000004e   Code   RO        34379    .text.osRtxMutexOwnerRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c666   0x00000002   PAD
-    0x0000c668   0x00000002   Code   RO        34279    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c66a   0x00000002   PAD
-    0x0000c66c   0x00000002   Code   RO        34344    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c66e   0x00000002   PAD
-    0x0000c670   0x00000002   Code   RO        34381    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c672   0x00000002   PAD
-    0x0000c674   0x00000002   Code   RO        34452    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000c676   0x00000002   PAD
-    0x0000c678   0x00000002   Code   RO        34509    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000c67a   0x00000002   PAD
-    0x0000c67c   0x00000002   Code   RO        34530    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c67e   0x00000002   PAD
-    0x0000c680   0x00000060   Code   RO        34485    .text.osRtxPendSV_Handler  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000c6e0   0x00000032   Code   RO        34499    .text.osRtxPostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c508   0x00000020   Code   RO        34229    .text.osRtxMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c528   0x0000002a   Code   RO        34235    .text.osRtxMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c552   0x00000002   PAD
+    0x0000c554   0x00000002   Code   RO        34283    .text.osRtxMemoryPoolId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c556   0x00000002   PAD
+    0x0000c558   0x00000054   Code   RO        34227    .text.osRtxMemoryPoolInit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c5ac   0x00000002   Code   RO        34495    .text.osRtxMemoryPoolObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c5ae   0x00000002   PAD
+    0x0000c5b0   0x00000030   Code   RO        34277    .text.osRtxMemoryPoolPostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000c5e0   0x00000002   Code   RO        34497    .text.osRtxMessageObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c5e2   0x00000002   PAD
+    0x0000c5e4   0x00000002   Code   RO        34352    .text.osRtxMessageQueueId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000c5e6   0x00000002   PAD
+    0x0000c5e8   0x00000002   Code   RO        34693    .text.osRtxMessageQueueId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000c5ea   0x00000002   PAD
+    0x0000c5ec   0x000000d0   Code   RO        34340    .text.osRtxMessageQueuePostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000c6bc   0x00000002   Code   RO        34403    .text.osRtxMutexId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000c6be   0x00000002   PAD
+    0x0000c6c0   0x0000004e   Code   RO        34379    .text.osRtxMutexOwnerRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000c70e   0x00000002   PAD
+    0x0000c710   0x00000002   Code   RO        34279    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
     0x0000c712   0x00000002   PAD
-    0x0000c714   0x00000002   Code   RO        34458    .text.osRtxSemaphoreId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000c714   0x00000002   Code   RO        34344    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
     0x0000c716   0x00000002   PAD
-    0x0000c718   0x00000002   Code   RO        34493    .text.osRtxSemaphoreObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c718   0x00000002   Code   RO        34381    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
     0x0000c71a   0x00000002   PAD
-    0x0000c71c   0x0000002c   Code   RO        34448    .text.osRtxSemaphorePostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000c748   0x00000042   Code   RO        34552    .text.osRtxThreadBlock  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c78a   0x00000002   PAD
-    0x0000c78c   0x0000009e   Code   RO        34560    .text.osRtxThreadDelayInsert  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c82a   0x00000002   PAD
-    0x0000c82c   0x00000048   Code   RO        34556    .text.osRtxThreadDelayRemove  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c874   0x00000036   Code   RO        34536    .text.osRtxThreadDelayTick  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c8aa   0x00000002   PAD
-    0x0000c8ac   0x00000062   Code   RO        34546    .text.osRtxThreadDispatch  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c90e   0x00000002   PAD
-    0x0000c910   0x00000062   Code   RO        34652    .text.osRtxThreadFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c972   0x00000002   PAD
-    0x0000c974   0x0000000c   Code   RO        34287    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000c980   0x0000000c   Code   RO        34356    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000c98c   0x0000000c   Code   RO        34407    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000c998   0x0000000c   Code   RO        34550    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c9a4   0x00000002   Code   RO        34564    .text.osRtxThreadId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c9a6   0x00000002   PAD
-    0x0000c9a8   0x0000001a   Code   RO        34526    .text.osRtxThreadListGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c9c2   0x00000002   PAD
-    0x0000c9c4   0x00000032   Code   RO        34522    .text.osRtxThreadListPut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000c9f6   0x00000002   PAD
-    0x0000c9f8   0x0000001c   Code   RO        34532    .text.osRtxThreadListRemove  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ca14   0x00000034   Code   RO        34528    .text.osRtxThreadListSort  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ca48   0x00000002   Code   RO        34489    .text.osRtxThreadObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000ca4a   0x00000002   PAD
-    0x0000ca4c   0x00000002   Code   RO        34524    .text.osRtxThreadObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c71c   0x00000002   Code   RO        34452    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000c71e   0x00000002   PAD
+    0x0000c720   0x00000002   Code   RO        34509    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c722   0x00000002   PAD
+    0x0000c724   0x00000002   Code   RO        34530    .text.osRtxObject   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c726   0x00000002   PAD
+    0x0000c728   0x00000060   Code   RO        34485    .text.osRtxPendSV_Handler  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c788   0x00000032   Code   RO        34499    .text.osRtxPostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c7ba   0x00000002   PAD
+    0x0000c7bc   0x00000002   Code   RO        34458    .text.osRtxSemaphoreId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000c7be   0x00000002   PAD
+    0x0000c7c0   0x00000002   Code   RO        34493    .text.osRtxSemaphoreObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000c7c2   0x00000002   PAD
+    0x0000c7c4   0x0000002c   Code   RO        34448    .text.osRtxSemaphorePostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000c7f0   0x00000042   Code   RO        34552    .text.osRtxThreadBlock  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c832   0x00000002   PAD
+    0x0000c834   0x0000009e   Code   RO        34560    .text.osRtxThreadDelayInsert  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c8d2   0x00000002   PAD
+    0x0000c8d4   0x00000048   Code   RO        34556    .text.osRtxThreadDelayRemove  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c91c   0x00000036   Code   RO        34536    .text.osRtxThreadDelayTick  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c952   0x00000002   PAD
+    0x0000c954   0x00000062   Code   RO        34546    .text.osRtxThreadDispatch  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000c9b6   0x00000002   PAD
+    0x0000c9b8   0x00000062   Code   RO        34652    .text.osRtxThreadFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ca1a   0x00000002   PAD
+    0x0000ca1c   0x0000000c   Code   RO        34287    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000ca28   0x0000000c   Code   RO        34356    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000ca34   0x0000000c   Code   RO        34407    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000ca40   0x0000000c   Code   RO        34550    .text.osRtxThreadGetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ca4c   0x00000002   Code   RO        34564    .text.osRtxThreadId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
     0x0000ca4e   0x00000002   PAD
-    0x0000ca50   0x0000002a   Code   RO        34618    .text.osRtxThreadPostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ca7a   0x00000002   PAD
-    0x0000ca7c   0x00000014   Code   RO        34534    .text.osRtxThreadReadyPut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ca90   0x00000010   Code   RO        34538    .text.osRtxThreadRegPtr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000caa0   0x0000000e   Code   RO        34658    .text.osRtxThreadSetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000caae   0x00000002   PAD
-    0x0000cab0   0x00000030   Code   RO        34544    .text.osRtxThreadStackCheck  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cae0   0x00000050   Code   RO        34562    .text.osRtxThreadStartup  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cb30   0x00000012   Code   RO        34542    .text.osRtxThreadSwitch  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cb42   0x00000002   PAD
-    0x0000cb44   0x0000003e   Code   RO        34558    .text.osRtxThreadWaitEnter  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cb82   0x00000002   PAD
-    0x0000cb84   0x00000028   Code   RO        34554    .text.osRtxThreadWaitExit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cbac   0x00000076   Code   RO        34481    .text.osRtxTick_Handler  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
-    0x0000cc22   0x00000002   PAD
-    0x0000cc24   0x00000002   Code   RO        34721    .text.osRtxTimerId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000cc26   0x00000002   PAD
-    0x0000cc28   0x0000004a   Code   RO        34691    .text.osRtxTimerThread  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000cc72   0x00000002   PAD
-    0x0000cc74   0x0000005a   Code   RO        34695    .text.osRtxTimerTick  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000ca50   0x0000001a   Code   RO        34526    .text.osRtxThreadListGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ca6a   0x00000002   PAD
+    0x0000ca6c   0x00000032   Code   RO        34522    .text.osRtxThreadListPut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ca9e   0x00000002   PAD
+    0x0000caa0   0x0000001c   Code   RO        34532    .text.osRtxThreadListRemove  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cabc   0x00000034   Code   RO        34528    .text.osRtxThreadListSort  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000caf0   0x00000002   Code   RO        34489    .text.osRtxThreadObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000caf2   0x00000002   PAD
+    0x0000caf4   0x00000002   Code   RO        34524    .text.osRtxThreadObject  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000caf6   0x00000002   PAD
+    0x0000caf8   0x0000002a   Code   RO        34618    .text.osRtxThreadPostProcess  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cb22   0x00000002   PAD
+    0x0000cb24   0x00000014   Code   RO        34534    .text.osRtxThreadReadyPut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cb38   0x00000010   Code   RO        34538    .text.osRtxThreadRegPtr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cb48   0x0000000e   Code   RO        34658    .text.osRtxThreadSetRunning  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cb56   0x00000002   PAD
+    0x0000cb58   0x00000030   Code   RO        34544    .text.osRtxThreadStackCheck  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cb88   0x00000050   Code   RO        34562    .text.osRtxThreadStartup  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cbd8   0x00000012   Code   RO        34542    .text.osRtxThreadSwitch  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cbea   0x00000002   PAD
+    0x0000cbec   0x0000003e   Code   RO        34558    .text.osRtxThreadWaitEnter  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cc2a   0x00000002   PAD
+    0x0000cc2c   0x00000028   Code   RO        34554    .text.osRtxThreadWaitExit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000cc54   0x00000076   Code   RO        34481    .text.osRtxTick_Handler  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_system.o
+    0x0000ccca   0x00000002   PAD
+    0x0000cccc   0x00000002   Code   RO        34721    .text.osRtxTimerId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
     0x0000ccce   0x00000002   PAD
-    0x0000ccd0   0x0000002e   Code   RO        34444    .text.osSemaphoreDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000ccfe   0x00000002   PAD
-    0x0000cd00   0x00000036   Code   RO        34424    .text.osSemaphoreNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000cd36   0x00000002   PAD
-    0x0000cd38   0x00000028   Code   RO        34436    .text.osSemaphoreRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000cd60   0x0000001a   Code   RO        34600    .text.osThreadExit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cd7a   0x00000002   PAD
-    0x0000cd7c   0x00000022   Code   RO        34576    .text.osThreadGetId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cd9e   0x00000002   PAD
-    0x0000cda0   0x00000036   Code   RO        34568    .text.osThreadNew   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000cdd6   0x00000002   PAD
-    0x0000cdd8   0x00000032   Code   RO        34602    .text.osThreadTerminate  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ce0a   0x00000002   PAD
-    0x0000ce0c   0x0000002e   Code   RO        34711    .text.osTimerDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000ce3a   0x00000002   PAD
-    0x0000ce3c   0x00000040   Code   RO        34697    .text.osTimerNew    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000ce7c   0x00000032   Code   RO        34705    .text.osTimerStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000ceae   0x00000002   PAD
-    0x0000ceb0   0x0000002e   Code   RO        34707    .text.osTimerStop   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000cede   0x00000002   PAD
-    0x0000cee0   0x0000001e   Code   RO        33757    .text.os_kernel_is_active  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
-    0x0000cefe   0x00000002   PAD
-    0x0000cf00   0x00000058   Code   RO        37620    .text.pin_function  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
-    0x0000cf58   0x0000006e   Code   RO        37626    .text.pin_mode      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
-    0x0000cfc6   0x00000002   PAD
-    0x0000cfc8   0x00000020   Code   RO        32227    .text.pinmap_find_peripheral  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
-    0x0000cfe8   0x00000044   Code   RO        32225    .text.pinmap_merge  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
-    0x0000d02c   0x00000058   Code   RO        32229    .text.pinmap_peripheral  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
-    0x0000d084   0x00000068   Code   RO        32223    .text.pinmap_pinout  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
-    0x0000d0ec   0x00000022   Code   RO        37273    .text.pit_isr       BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000d10e   0x00000002   PAD
-    0x0000d110   0x00000164   Code   RO        32857    .text.print_context_info  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x0000d274   0x000001d4   Code   RO        33056    .text.print_error_report  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0000d448   0x0000000e   Code   RO        33896    .text.rtos_idle_loop  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_idle.o
-    0x0000d456   0x00000002   PAD
-    0x0000d458   0x000000cc   Code   RO        32277    .text.schedule_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000d524   0x0000002e   Code   RO        36947    .text.serial_baud   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d552   0x00000002   PAD
-    0x0000d554   0x00000058   Code   RO        36949    .text.serial_format  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d5ac   0x00000022   Code   RO        36975    .text.serial_getc   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d5ce   0x00000002   PAD
-    0x0000d5d0   0x00000124   Code   RO        36939    .text.serial_init   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d6f4   0x0000001a   Code   RO        36965    .text.serial_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d70e   0x00000002   PAD
-    0x0000d710   0x00000114   Code   RO        36967    .text.serial_irq_set  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d824   0x0000002a   Code   RO        36981    .text.serial_putc   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d84e   0x00000002   PAD
-    0x0000d850   0x0000002e   Code   RO        36977    .text.serial_readable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d87e   0x00000002   PAD
-    0x0000d880   0x0000002e   Code   RO        36983    .text.serial_writable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000d8ae   0x00000002   PAD
-    0x0000d8b0   0x00000006   Code   RO        32271    .text.set_handler   BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000d8b6   0x00000002   PAD
-    0x0000d8b8   0x00000058   Code   RO        33223    .text.sleep_manager_lock_deep_sleep_internal  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_power_mgmt.o
-    0x0000d910   0x00000012   Code   RO        33231    .text.sleep_manager_sleep_auto  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_power_mgmt.o
-    0x0000d922   0x00000002   PAD
-    0x0000d924   0x00000058   Code   RO        33225    .text.sleep_manager_unlock_deep_sleep_internal  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_power_mgmt.o
-    0x0000d97c   0x000000bc   Code   RO        37060    .text.spi_format    BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0000da38   0x00000054   Code   RO        37062    .text.spi_frequency  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0000da8c   0x000000f0   Code   RO        37056    .text.spi_init      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0000db7c   0x0000005a   Code   RO        37072    .text.spi_master_block_write  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0000dbd6   0x00000002   PAD
-    0x0000dbd8   0x00000068   Code   RO        37064    .text.spi_master_write  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0000dc40   0x0000001a   Code   RO        37068    .text.spi_readable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0000dc5a   0x00000002   PAD
-    0x0000dc5c   0x00000014   Code   RO        33986    .text.svcRtxDelay   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_delay.o
-    0x0000dc70   0x00000004   Code   RO        34116    .text.svcRtxKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000dc74   0x0000015c   Code   RO        34146    .text.svcRtxKernelInitialize  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000ddd0   0x0000007c   Code   RO        34170    .text.svcRtxKernelResume  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000de4c   0x00000080   Code   RO        34150    .text.svcRtxKernelStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000decc   0x0000003e   Code   RO        34162    .text.svcRtxKernelSuspend  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0000df0a   0x00000002   PAD
-    0x0000df0c   0x00000052   Code   RO        34285    .text.svcRtxMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000df5e   0x00000002   PAD
-    0x0000df60   0x0000008e   Code   RO        34291    .text.svcRtxMemoryPoolDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000dfee   0x00000002   PAD
-    0x0000dff0   0x00000064   Code   RO        34289    .text.svcRtxMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000e054   0x00000178   Code   RO        34275    .text.svcRtxMemoryPoolNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
-    0x0000e1cc   0x00000090   Code   RO        34368    .text.svcRtxMessageQueueDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000e25c   0x00000108   Code   RO        34364    .text.svcRtxMessageQueueGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000e364   0x00000192   Code   RO        34338    .text.svcRtxMessageQueueNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000e4f6   0x00000002   PAD
-    0x0000e4f8   0x000000ec   Code   RO        34354    .text.svcRtxMessageQueuePut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
-    0x0000e5e4   0x000000c2   Code   RO        34405    .text.svcRtxMutexAcquire  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000e6a6   0x00000002   PAD
-    0x0000e6a8   0x000000dc   Code   RO        34413    .text.svcRtxMutexDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000e784   0x0000007e   Code   RO        34399    .text.svcRtxMutexNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000e802   0x00000002   PAD
-    0x0000e804   0x000000e8   Code   RO        34409    .text.svcRtxMutexRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
-    0x0000e8ec   0x0000007e   Code   RO        34470    .text.svcRtxSemaphoreDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000e96a   0x00000002   PAD
-    0x0000e96c   0x000000ba   Code   RO        34446    .text.svcRtxSemaphoreNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000ea26   0x00000002   PAD
-    0x0000ea28   0x00000060   Code   RO        34468    .text.svcRtxSemaphoreRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
-    0x0000ea88   0x00000074   Code   RO        34656    .text.svcRtxThreadExit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000eafc   0x00000004   Code   RO        34578    .text.svcRtxThreadGetId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000eb00   0x00000240   Code   RO        34566    .text.svcRtxThreadNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ed40   0x000000da   Code   RO        34660    .text.svcRtxThreadTerminate  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
-    0x0000ee1a   0x00000002   PAD
-    0x0000ee1c   0x00000062   Code   RO        34731    .text.svcRtxTimerDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000ee7e   0x00000002   PAD
-    0x0000ee80   0x0000009e   Code   RO        34717    .text.svcRtxTimerNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000ef1e   0x00000002   PAD
-    0x0000ef20   0x00000064   Code   RO        34723    .text.svcRtxTimerStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000ef84   0x0000003c   Code   RO        34727    .text.svcRtxTimerStop  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
-    0x0000efc0   0x00000012   Code   RO        33848    .text.thread_terminate_hook  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x0000efd2   0x00000002   PAD
-    0x0000efd4   0x0000007c   Code   RO        32283    .text.ticker_insert_event_us  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f050   0x0000006e   Code   RO        32273    .text.ticker_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f0be   0x00000002   PAD
-    0x0000f0c0   0x00000008   Code   RO        32287    .text.ticker_read   BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f0c8   0x00000022   Code   RO        32289    .text.ticker_read_us  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f0ea   0x00000002   PAD
-    0x0000f0ec   0x0000003c   Code   RO        32285    .text.ticker_remove_event  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f128   0x0000001e   Code   RO        32267    .text.ticker_set_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f146   0x00000002   PAD
-    0x0000f148   0x0000002c   Code   RO        33830    .text.trap_rtx_error  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x0000f174   0x00000018   Code   RO        36951    .text.uart0_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f18c   0x00000018   Code   RO        36955    .text.uart1_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f1a4   0x00000018   Code   RO        36957    .text.uart2_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f1bc   0x00000018   Code   RO        36959    .text.uart3_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f1d4   0x00000018   Code   RO        36961    .text.uart4_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f1ec   0x00000018   Code   RO        36963    .text.uart5_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f204   0x00000070   Code   RO        36953    .text.uart_irq      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0000f274   0x000000ea   Code   RO        32275    .text.update_present_time  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
-    0x0000f35e   0x00000002   PAD
-    0x0000f360   0x00000006   Code   RO        37285    .text.us_ticker_clear_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f366   0x00000002   PAD
-    0x0000f368   0x00000004   Code   RO        37283    .text.us_ticker_disable_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f36c   0x00000004   Code   RO        37291    .text.us_ticker_fire_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f370   0x00000030   Code   RO        37295    .text.us_ticker_free  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f3a0   0x0000000a   Code   RO        37255    .text.us_ticker_get_info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f3aa   0x00000002   PAD
-    0x0000f3ac   0x000000aa   Code   RO        37257    .text.us_ticker_init  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f456   0x00000002   PAD
-    0x0000f458   0x0000001a   Code   RO        32312    .text.us_ticker_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
-    0x0000f472   0x00000002   PAD
-    0x0000f474   0x0000000a   Code   RO        37279    .text.us_ticker_read  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f47e   0x00000002   PAD
-    0x0000f480   0x00000040   Code   RO        37287    .text.us_ticker_set_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x0000f4c0   0x0000003a   Code   RO        33550    .text.wait_ms       BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_rtos.o
-    0x0000f4fa   0x00000002   PAD
-    0x0000f4fc   0x00000030   Code   RO        33293    .text.write         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0000f52c   0x0000003e   Code   RO        38413    CL$$btod_d2e        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000f56a   0x00000046   Code   RO        38415    CL$$btod_d2e_denorm_low  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000f5b0   0x00000060   Code   RO        38414    CL$$btod_d2e_norm_op1  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000f610   0x00000338   Code   RO        38423    CL$$btod_div_common  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000f948   0x000000dc   Code   RO        38420    CL$$btod_e2e        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000fa24   0x0000002a   Code   RO        38417    CL$$btod_ediv       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000fa4e   0x0000002a   Code   RO        38416    CL$$btod_emul       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000fa78   0x00000244   Code   RO        38422    CL$$btod_mult_common  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
-    0x0000fcbc   0x00000030   Code   RO        38522    i.__ARM_fpclassify  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\m_wm.l(fpclassify.o)
-    0x0000fcec   0x0000003a   Code   RO        38112    i.__hardfp_sqrtf    c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\m_wm.l(sqrtf.o)
-    0x0000fd26   0x0000000e   Code   RO        37856    i._is_digit         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(__printf_wp.o)
-    0x0000fd34   0x0000001a   Code   RO        37900    i.fputc             c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(fputc.o)
-    0x0000fd4e   0x00000002   PAD
-    0x0000fd50   0x0000002c   Code   RO        38265    locale$$code        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_ctype_c.o)
-    0x0000fd7c   0x0000002c   Code   RO        38466    locale$$code        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_numeric_c.o)
-    0x0000fda8   0x00000062   Code   RO        38009    x$fpl$d2f           c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(d2f.o)
-    0x0000fe0a   0x00000018   Code   RO        38503    x$fpl$dcmpinf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dcmpi.o)
-    0x0000fe22   0x00000002   PAD
-    0x0000fe24   0x00000078   Code   RO        38331    x$fpl$deqf          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(deqf.o)
-    0x0000fe9c   0x00000078   Code   RO        38333    x$fpl$dgeqf         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dgeqf.o)
-    0x0000ff14   0x00000078   Code   RO        38335    x$fpl$dleqf         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dleqf.o)
-    0x0000ff8c   0x00000154   Code   RO        38037    x$fpl$dmul          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dmul.o)
-    0x000100e0   0x0000009c   Code   RO        38337    x$fpl$dnaninf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dnaninf.o)
-    0x0001017c   0x0000000c   Code   RO        38339    x$fpl$dretinf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dretinf.o)
-    0x00010188   0x00000056   Code   RO        38039    x$fpl$f2d           c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(f2d.o)
-    0x000101de   0x00000054   Code   RO        38017    x$fpl$fcmp          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dcmp.o)
-    0x00010232   0x0000008c   Code   RO        38341    x$fpl$fnaninf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(fnaninf.o)
-    0x000102be   0x0000001a   Code   RO        38505    x$fpl$fpinit        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(fpinit.o)
-    0x000102d8   0x0000000a   Code   RO        38343    x$fpl$fretinf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(fretinf.o)
-    0x000102e2   0x00000004   Code   RO        38047    x$fpl$printf1       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(printf1.o)
-    0x000102e6   0x00000004   Code   RO        38345    x$fpl$printf2       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(printf2.o)
-    0x000102ea   0x00000000   Code   RO        38353    x$fpl$usenofp       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(usenofp.o)
-    0x000102ea   0x00000028   Data   RO        37844    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(_printf_hex_int_ll_ptr.o)
-    0x00010312   0x00000011   Data   RO        37864    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(__printf_flags_ss_wp.o)
-    0x00010323   0x00000001   PAD
-    0x00010324   0x00000008   Data   RO        38200    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(_printf_wctomb.o)
-    0x0001032c   0x00000026   Data   RO        38388    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(_printf_fp_hex.o)
-    0x00010352   0x00000002   PAD
-    0x00010354   0x00000094   Data   RO        38411    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(bigflt0.o)
-    0x000103e8   0x000000a0   Data   RO        34193    .rodata             BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x00010488   0x00000014   Data   RO        37552    .rodata..Li2c_init.port_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x0001049c   0x00000006   Data   RO        37044    .rodata..Lserial_irq_set.uart_irqs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x000104a2   0x00000002   PAD
-    0x000104a4   0x00000018   Data   RO        33856    .rodata..Lswitch.table.error_msg  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x000104bc   0x00000773   Data   RO          273    .rodata.OpenSans_10x15_Regular  BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/OpenSans_Font/OpenSans_Font.o
-    0x00010c2f   0x00000001   PAD
-    0x00010c30   0x00000030   Data   RO        34884    .rodata.PinMap_I2C_SCL  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010c60   0x00000030   Data   RO        34883    .rodata.PinMap_I2C_SDA  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010c90   0x00000048   Data   RO        34891    .rodata.PinMap_SPI_MISO  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010cd8   0x00000048   Data   RO        34890    .rodata.PinMap_SPI_MOSI  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010d20   0x0000003c   Data   RO        34889    .rodata.PinMap_SPI_SCLK  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010d5c   0x0000003c   Data   RO        34892    .rodata.PinMap_SPI_SSEL  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010d98   0x0000003c   Data   RO        34886    .rodata.PinMap_UART_RX  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010dd4   0x0000003c   Data   RO        34885    .rodata.PinMap_UART_TX  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
-    0x00010e10   0x00000138   Data   RO          255    .rodata._ZL3seq     BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/Hexi_OLED_SSD1351.o
-    0x00010f48   0x0000005c   Data   RO        33423    .rodata._ZTV12DirectSerial  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x00010fa4   0x0000005c   Data   RO        32561    .rodata._ZTVN4mbed10FileHandleE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/FileHandle.o
-    0x00011000   0x00000018   Data   RO         2393    .rodata._ZTVN4mbed10SerialBaseE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/SerialBase.o
-    0x00011018   0x00000014   Data   RO         2523    .rodata._ZTVN4mbed10TimerEventE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/TimerEvent.o
-    0x0001102c   0x00000018   Data   RO         1831    .rodata._ZTVN4mbed3I2CE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/I2C.o
-    0x00011044   0x00000020   Data   RO         2213    .rodata._ZTVN4mbed3SPIE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/SPI.o
-    0x00011064   0x0000009c   Data   RO         2297    .rodata._ZTVN4mbed6SerialE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
-    0x00011100   0x0000007c   Data   RO        32673    .rodata._ZTVN4mbed6StreamE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
-    0x0001117c   0x00000010   Data   RO        32549    .rodata._ZTVN4mbed8FileBaseE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/FileBase.o
-    0x0001118c   0x0000006c   Data   RO        32692    .rodata._ZTVN4mbed8FileLikeE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
-    0x000111f8   0x00000014   Data   RO        32849    .rodata._ZTVN4mbed8internal8SysTimerILj1000ELb1EEE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
-    0x0001120c   0x00000018   Data   RO         2121    .rodata._ZTVN4mbed9RawSerialE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/RawSerial.o
-    0x00011224   0x00000010   Data   RO        34870    .rodata._ZTVN4rtos6ThreadE  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/Thread.o
-    0x00011234   0x0000000c   Data   RO         2254    .rodata._ZZN4mbed8CallbackIFviEE8generateIPS1_EEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/SPI.o
-    0x00011240   0x0000000c   Data   RO          169    .rodata._ZZN4mbed8CallbackIFvvEE8generateINS2_14method_contextI5KW40ZMS5_FvvEEEEEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
-    0x0001124c   0x0000000c   Data   RO          379    .rodata._ZZN4mbed8CallbackIFvvEE8generateINS2_16function_contextIPFvPvEvEEEEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/main.o
-    0x00011258   0x0000000c   Data   RO          168    .rodata._ZZN4mbed8CallbackIFvvEE8generateIPS1_EEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
-    0x00011264   0x00000008   Data   RO        33419    .rodata.__stderr_name  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0001126c   0x00000007   Data   RO        33417    .rodata.__stdin_name  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x00011273   0x00000008   Data   RO        33418    .rodata.__stdout_name  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x0001127b   0x00000001   PAD
-    0x0001127c   0x00000020   Data   RO        35117    .rodata.cst16       BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_clock.o
-    0x0001129c   0x00000020   Data   RO        34913    .rodata.g_defaultClockConfigRun  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/fsl_clock_config.o
-    0x000112bc   0x00000014   Data   RO        37454    .rodata.gpio_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x000112d0   0x0000000c   Data   RO        37554    .rodata.i2c_addrs   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x000112dc   0x00000003   Data   RO        37555    .rodata.i2c_clocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x000112df   0x00000001   PAD
-    0x000112e0   0x00000008   Data   RO        32204    .rodata.lp_data     BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
-    0x000112e8   0x00000024   Data   RO        32206    .rodata.lp_interface  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
-    0x0001130c   0x00000008   Data   RO        37609    .rodata.lp_ticker_get_info.info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
-    0x00011314   0x00000004   Data   RO        32862    .rodata.mbed_fault_context  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x00011318   0x00000004   Data   RO        34195    .rodata.osRtxUserSVC  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x0001131c   0x00000024   Data   RO        34190    .rodata.os_idle_thread_attr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x00011340   0x00000018   Data   RO        34192    .rodata.os_timer_mq_attr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x00011358   0x00000024   Data   RO        34191    .rodata.os_timer_thread_attr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x0001137c   0x00000014   Data   RO        37629    .rodata.port_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
-    0x00011390   0x0000000c   Data   RO        35426    .rodata.s_dspiBases  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_dspi.o
-    0x0001139c   0x0000000c   Data   RO        35428    .rodata.s_dspiClock  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_dspi.o
-    0x000113a8   0x0000000c   Data   RO        36128    .rodata.s_i2cBases  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
-    0x000113b4   0x0000000c   Data   RO        36130    .rodata.s_i2cClocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
-    0x000113c0   0x00000080   Data   RO        36131    .rodata.s_i2cDividerTable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
-    0x00011440   0x00000018   Data   RO        36777    .rodata.s_uartBases  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_uart.o
-    0x00011458   0x00000018   Data   RO        36779    .rodata.s_uartClock  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_uart.o
-    0x00011470   0x0000000c   Data   RO        37115    .rodata.spi_address  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0001147c   0x00000003   Data   RO        37116    .rodata.spi_clocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x0001147f   0x00000004   Data   RO          110    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
-    0x00011483   0x00000023   Data   RO         1255    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266Interface.o
-    0x000114a6   0x00000045   Data   RO        28642    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/features/netsocket/nsapi_dns.o
-    0x000114eb   0x0000004e   Data   RO        32694    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
-    0x00011539   0x000000a5   Data   RO        32863    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
-    0x000115de   0x00000140   Data   RO        33100    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
-    0x0001171e   0x00000063   Data   RO        33425    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
-    0x00011781   0x00000047   Data   RO        33552    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_rtos.o
-    0x000117c8   0x00000012   Data   RO        33690    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/Mutex.o
-    0x000117da   0x00000138   Data   RO        33855    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
-    0x00011912   0x00000036   Data   RO        33900    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_idle.o
-    0x00011948   0x00000013   Data   RO        34196    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
-    0x0001195b   0x00000025   Data   RO        34803    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/ThisThread.o
-    0x00011980   0x0000007e   Data   RO        35115    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_clock.o
-    0x000119fe   0x000000bc   Data   RO        35427    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_dspi.o
-    0x00011aba   0x0000006c   Data   RO        35624    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_edma.o
-    0x00011b26   0x0000005d   Data   RO        35708    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_enet.o
-    0x00011b83   0x000000f6   Data   RO        35952    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_flexcan.o
-    0x00011c79   0x0000006b   Data   RO        36129    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
-    0x00011ce4   0x0000005e   Data   RO        36211    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_lptmr.o
-    0x00011d42   0x0000005c   Data   RO        36257    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_pit.o
-    0x00011d9e   0x0000005c   Data   RO        36346    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_rtc.o
-    0x00011dfa   0x0000005c   Data   RO        36441    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_sai.o
-    0x00011e56   0x0000005d   Data   RO        36591    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_sdhc.o
-    0x00011eb3   0x00000077   Data   RO        36778    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_uart.o
-    0x00011f2a   0x00000057   Data   RO        37038    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x00011f81   0x00000054   Data   RO        37114    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
-    0x00011fd5   0x0000005c   Data   RO        37301    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x00012031   0x00000061   Data   RO        37453    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
-    0x00012092   0x00000048   Data   RO        37553    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
-    0x000120da   0x00000047   Data   RO        37628    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
-    0x00012121   0x00000003   PAD
-    0x00012124   0x0000000b   Data   RO        34176    .rodata.str1.4      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
-    0x0001212f   0x00000001   PAD
-    0x00012130   0x00000018   Data   RO        37039    .rodata.uart_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x00012148   0x00000006   Data   RO        37040    .rodata.uart_clocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
-    0x0001214e   0x00000002   PAD
-    0x00012150   0x00000008   Data   RO        32318    .rodata.us_data     BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
-    0x00012158   0x00000024   Data   RO        32321    .rodata.us_interface  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
-    0x0001217c   0x00000008   Data   RO        37299    .rodata.us_ticker_get_info.info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
-    0x00012184   0x00000020   Data   RO        38646    Region$$Table       anon$$obj.o
-    0x000121a4   0x00000110   Data   RO        38264    locale$$data        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_ctype_c.o)
-    0x000122b4   0x0000001c   Data   RO        38465    locale$$data        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_numeric_c.o)
-    0x000122d0   0x00000004   Data   RO          349    .init_array         BUILD/HEXIWEAR/ARMC6/main.o
-    0x000122d4   0x00000000   Data   RO        38004    .init_array         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(init_aeabi.o)
+    0x0000ccd0   0x0000004a   Code   RO        34691    .text.osRtxTimerThread  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000cd1a   0x00000002   PAD
+    0x0000cd1c   0x0000005a   Code   RO        34695    .text.osRtxTimerTick  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000cd76   0x00000002   PAD
+    0x0000cd78   0x0000002e   Code   RO        34444    .text.osSemaphoreDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000cda6   0x00000002   PAD
+    0x0000cda8   0x00000036   Code   RO        34424    .text.osSemaphoreNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000cdde   0x00000002   PAD
+    0x0000cde0   0x00000028   Code   RO        34436    .text.osSemaphoreRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000ce08   0x0000001a   Code   RO        34600    .text.osThreadExit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ce22   0x00000002   PAD
+    0x0000ce24   0x00000022   Code   RO        34576    .text.osThreadGetId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ce46   0x00000002   PAD
+    0x0000ce48   0x00000036   Code   RO        34568    .text.osThreadNew   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ce7e   0x00000002   PAD
+    0x0000ce80   0x00000032   Code   RO        34602    .text.osThreadTerminate  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ceb2   0x00000002   PAD
+    0x0000ceb4   0x0000002e   Code   RO        34711    .text.osTimerDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000cee2   0x00000002   PAD
+    0x0000cee4   0x00000040   Code   RO        34697    .text.osTimerNew    BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000cf24   0x00000032   Code   RO        34705    .text.osTimerStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000cf56   0x00000002   PAD
+    0x0000cf58   0x0000002e   Code   RO        34707    .text.osTimerStop   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000cf86   0x00000002   PAD
+    0x0000cf88   0x0000001e   Code   RO        33757    .text.os_kernel_is_active  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/TOOLCHAIN_ARM_STD/mbed_boot_arm_std.o
+    0x0000cfa6   0x00000002   PAD
+    0x0000cfa8   0x00000058   Code   RO        37620    .text.pin_function  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
+    0x0000d000   0x0000006e   Code   RO        37626    .text.pin_mode      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
+    0x0000d06e   0x00000002   PAD
+    0x0000d070   0x00000020   Code   RO        32227    .text.pinmap_find_peripheral  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
+    0x0000d090   0x00000044   Code   RO        32225    .text.pinmap_merge  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
+    0x0000d0d4   0x00000058   Code   RO        32229    .text.pinmap_peripheral  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
+    0x0000d12c   0x00000068   Code   RO        32223    .text.pinmap_pinout  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_pinmap_common.o
+    0x0000d194   0x00000022   Code   RO        37273    .text.pit_isr       BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000d1b6   0x00000002   PAD
+    0x0000d1b8   0x00000164   Code   RO        32857    .text.print_context_info  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x0000d31c   0x000001d4   Code   RO        33056    .text.print_error_report  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x0000d4f0   0x0000000e   Code   RO        33896    .text.rtos_idle_loop  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_idle.o
+    0x0000d4fe   0x00000002   PAD
+    0x0000d500   0x000000cc   Code   RO        32277    .text.schedule_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000d5cc   0x0000002e   Code   RO        36947    .text.serial_baud   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d5fa   0x00000002   PAD
+    0x0000d5fc   0x00000058   Code   RO        36949    .text.serial_format  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d654   0x00000022   Code   RO        36975    .text.serial_getc   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d676   0x00000002   PAD
+    0x0000d678   0x00000124   Code   RO        36939    .text.serial_init   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d79c   0x0000001a   Code   RO        36965    .text.serial_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d7b6   0x00000002   PAD
+    0x0000d7b8   0x00000114   Code   RO        36967    .text.serial_irq_set  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d8cc   0x0000002a   Code   RO        36981    .text.serial_putc   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d8f6   0x00000002   PAD
+    0x0000d8f8   0x0000002e   Code   RO        36977    .text.serial_readable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d926   0x00000002   PAD
+    0x0000d928   0x0000002e   Code   RO        36983    .text.serial_writable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000d956   0x00000002   PAD
+    0x0000d958   0x00000006   Code   RO        32271    .text.set_handler   BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000d95e   0x00000002   PAD
+    0x0000d960   0x00000058   Code   RO        33223    .text.sleep_manager_lock_deep_sleep_internal  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_power_mgmt.o
+    0x0000d9b8   0x00000012   Code   RO        33231    .text.sleep_manager_sleep_auto  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_power_mgmt.o
+    0x0000d9ca   0x00000002   PAD
+    0x0000d9cc   0x00000058   Code   RO        33225    .text.sleep_manager_unlock_deep_sleep_internal  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_power_mgmt.o
+    0x0000da24   0x000000bc   Code   RO        37060    .text.spi_format    BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0000dae0   0x00000054   Code   RO        37062    .text.spi_frequency  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0000db34   0x000000f0   Code   RO        37056    .text.spi_init      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0000dc24   0x0000005a   Code   RO        37072    .text.spi_master_block_write  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0000dc7e   0x00000002   PAD
+    0x0000dc80   0x00000068   Code   RO        37064    .text.spi_master_write  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0000dce8   0x0000001a   Code   RO        37068    .text.spi_readable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0000dd02   0x00000002   PAD
+    0x0000dd04   0x00000014   Code   RO        33986    .text.svcRtxDelay   BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_delay.o
+    0x0000dd18   0x00000004   Code   RO        34116    .text.svcRtxKernelGetState  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000dd1c   0x0000015c   Code   RO        34146    .text.svcRtxKernelInitialize  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000de78   0x0000007c   Code   RO        34170    .text.svcRtxKernelResume  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000def4   0x00000080   Code   RO        34150    .text.svcRtxKernelStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000df74   0x0000003e   Code   RO        34162    .text.svcRtxKernelSuspend  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x0000dfb2   0x00000002   PAD
+    0x0000dfb4   0x00000052   Code   RO        34285    .text.svcRtxMemoryPoolAlloc  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000e006   0x00000002   PAD
+    0x0000e008   0x0000008e   Code   RO        34291    .text.svcRtxMemoryPoolDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000e096   0x00000002   PAD
+    0x0000e098   0x00000064   Code   RO        34289    .text.svcRtxMemoryPoolFree  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000e0fc   0x00000178   Code   RO        34275    .text.svcRtxMemoryPoolNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mempool.o
+    0x0000e274   0x00000090   Code   RO        34368    .text.svcRtxMessageQueueDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000e304   0x00000108   Code   RO        34364    .text.svcRtxMessageQueueGet  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000e40c   0x00000192   Code   RO        34338    .text.svcRtxMessageQueueNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000e59e   0x00000002   PAD
+    0x0000e5a0   0x000000ec   Code   RO        34354    .text.svcRtxMessageQueuePut  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_msgqueue.o
+    0x0000e68c   0x000000c2   Code   RO        34405    .text.svcRtxMutexAcquire  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000e74e   0x00000002   PAD
+    0x0000e750   0x000000dc   Code   RO        34413    .text.svcRtxMutexDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000e82c   0x0000007e   Code   RO        34399    .text.svcRtxMutexNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000e8aa   0x00000002   PAD
+    0x0000e8ac   0x000000e8   Code   RO        34409    .text.svcRtxMutexRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_mutex.o
+    0x0000e994   0x0000007e   Code   RO        34470    .text.svcRtxSemaphoreDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000ea12   0x00000002   PAD
+    0x0000ea14   0x000000ba   Code   RO        34446    .text.svcRtxSemaphoreNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000eace   0x00000002   PAD
+    0x0000ead0   0x00000060   Code   RO        34468    .text.svcRtxSemaphoreRelease  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_semaphore.o
+    0x0000eb30   0x00000074   Code   RO        34656    .text.svcRtxThreadExit  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000eba4   0x00000004   Code   RO        34578    .text.svcRtxThreadGetId  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000eba8   0x00000240   Code   RO        34566    .text.svcRtxThreadNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000ede8   0x000000da   Code   RO        34660    .text.svcRtxThreadTerminate  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_thread.o
+    0x0000eec2   0x00000002   PAD
+    0x0000eec4   0x00000062   Code   RO        34731    .text.svcRtxTimerDelete  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000ef26   0x00000002   PAD
+    0x0000ef28   0x0000009e   Code   RO        34717    .text.svcRtxTimerNew  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000efc6   0x00000002   PAD
+    0x0000efc8   0x00000064   Code   RO        34723    .text.svcRtxTimerStart  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000f02c   0x0000003c   Code   RO        34727    .text.svcRtxTimerStop  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_timer.o
+    0x0000f068   0x00000012   Code   RO        33848    .text.thread_terminate_hook  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x0000f07a   0x00000002   PAD
+    0x0000f07c   0x0000007c   Code   RO        32283    .text.ticker_insert_event_us  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f0f8   0x0000006e   Code   RO        32273    .text.ticker_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f166   0x00000002   PAD
+    0x0000f168   0x00000008   Code   RO        32287    .text.ticker_read   BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f170   0x00000022   Code   RO        32289    .text.ticker_read_us  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f192   0x00000002   PAD
+    0x0000f194   0x0000003c   Code   RO        32285    .text.ticker_remove_event  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f1d0   0x0000001e   Code   RO        32267    .text.ticker_set_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f1ee   0x00000002   PAD
+    0x0000f1f0   0x0000002c   Code   RO        33830    .text.trap_rtx_error  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x0000f21c   0x00000018   Code   RO        36951    .text.uart0_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f234   0x00000018   Code   RO        36955    .text.uart1_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f24c   0x00000018   Code   RO        36957    .text.uart2_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f264   0x00000018   Code   RO        36959    .text.uart3_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f27c   0x00000018   Code   RO        36961    .text.uart4_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f294   0x00000018   Code   RO        36963    .text.uart5_irq     BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f2ac   0x00000070   Code   RO        36953    .text.uart_irq      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0000f31c   0x000000ea   Code   RO        32275    .text.update_present_time  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_ticker_api.o
+    0x0000f406   0x00000002   PAD
+    0x0000f408   0x00000006   Code   RO        37285    .text.us_ticker_clear_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f40e   0x00000002   PAD
+    0x0000f410   0x00000004   Code   RO        37283    .text.us_ticker_disable_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f414   0x00000004   Code   RO        37291    .text.us_ticker_fire_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f418   0x00000030   Code   RO        37295    .text.us_ticker_free  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f448   0x0000000a   Code   RO        37255    .text.us_ticker_get_info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f452   0x00000002   PAD
+    0x0000f454   0x000000aa   Code   RO        37257    .text.us_ticker_init  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f4fe   0x00000002   PAD
+    0x0000f500   0x0000001a   Code   RO        32312    .text.us_ticker_irq_handler  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
+    0x0000f51a   0x00000002   PAD
+    0x0000f51c   0x0000000a   Code   RO        37279    .text.us_ticker_read  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f526   0x00000002   PAD
+    0x0000f528   0x00000040   Code   RO        37287    .text.us_ticker_set_interrupt  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0000f568   0x0000003a   Code   RO        33550    .text.wait_ms       BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_rtos.o
+    0x0000f5a2   0x00000002   PAD
+    0x0000f5a4   0x00000030   Code   RO        33293    .text.write         BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0000f5d4   0x0000003e   Code   RO        38413    CL$$btod_d2e        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000f612   0x00000046   Code   RO        38415    CL$$btod_d2e_denorm_low  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000f658   0x00000060   Code   RO        38414    CL$$btod_d2e_norm_op1  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000f6b8   0x00000338   Code   RO        38423    CL$$btod_div_common  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000f9f0   0x000000dc   Code   RO        38420    CL$$btod_e2e        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000facc   0x0000002a   Code   RO        38417    CL$$btod_ediv       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000faf6   0x0000002a   Code   RO        38416    CL$$btod_emul       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000fb20   0x00000244   Code   RO        38422    CL$$btod_mult_common  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(btod.o)
+    0x0000fd64   0x00000030   Code   RO        38522    i.__ARM_fpclassify  c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\m_wm.l(fpclassify.o)
+    0x0000fd94   0x0000003a   Code   RO        38112    i.__hardfp_sqrtf    c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\m_wm.l(sqrtf.o)
+    0x0000fdce   0x0000000e   Code   RO        37856    i._is_digit         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(__printf_wp.o)
+    0x0000fddc   0x0000001a   Code   RO        37900    i.fputc             c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(fputc.o)
+    0x0000fdf6   0x00000002   PAD
+    0x0000fdf8   0x0000002c   Code   RO        38265    locale$$code        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_ctype_c.o)
+    0x0000fe24   0x0000002c   Code   RO        38466    locale$$code        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_numeric_c.o)
+    0x0000fe50   0x00000062   Code   RO        38009    x$fpl$d2f           c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(d2f.o)
+    0x0000feb2   0x00000018   Code   RO        38503    x$fpl$dcmpinf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dcmpi.o)
+    0x0000feca   0x00000002   PAD
+    0x0000fecc   0x00000078   Code   RO        38331    x$fpl$deqf          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(deqf.o)
+    0x0000ff44   0x00000078   Code   RO        38333    x$fpl$dgeqf         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dgeqf.o)
+    0x0000ffbc   0x00000078   Code   RO        38335    x$fpl$dleqf         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dleqf.o)
+    0x00010034   0x00000154   Code   RO        38037    x$fpl$dmul          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dmul.o)
+    0x00010188   0x0000009c   Code   RO        38337    x$fpl$dnaninf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dnaninf.o)
+    0x00010224   0x0000000c   Code   RO        38339    x$fpl$dretinf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dretinf.o)
+    0x00010230   0x00000056   Code   RO        38039    x$fpl$f2d           c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(f2d.o)
+    0x00010286   0x00000054   Code   RO        38017    x$fpl$fcmp          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(dcmp.o)
+    0x000102da   0x0000008c   Code   RO        38341    x$fpl$fnaninf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(fnaninf.o)
+    0x00010366   0x0000001a   Code   RO        38505    x$fpl$fpinit        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(fpinit.o)
+    0x00010380   0x0000000a   Code   RO        38343    x$fpl$fretinf       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(fretinf.o)
+    0x0001038a   0x00000004   Code   RO        38047    x$fpl$printf1       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(printf1.o)
+    0x0001038e   0x00000004   Code   RO        38345    x$fpl$printf2       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(printf2.o)
+    0x00010392   0x00000000   Code   RO        38353    x$fpl$usenofp       c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\fz_wm.l(usenofp.o)
+    0x00010392   0x00000028   Data   RO        37844    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(_printf_hex_int_ll_ptr.o)
+    0x000103ba   0x00000011   Data   RO        37864    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(__printf_flags_ss_wp.o)
+    0x000103cb   0x00000001   PAD
+    0x000103cc   0x00000008   Data   RO        38200    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(_printf_wctomb.o)
+    0x000103d4   0x00000026   Data   RO        38388    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(_printf_fp_hex.o)
+    0x000103fa   0x00000002   PAD
+    0x000103fc   0x00000094   Data   RO        38411    .constdata          c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(bigflt0.o)
+    0x00010490   0x000000a0   Data   RO        34193    .rodata             BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x00010530   0x00000014   Data   RO        37552    .rodata..Li2c_init.port_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x00010544   0x00000006   Data   RO        37044    .rodata..Lserial_irq_set.uart_irqs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x0001054a   0x00000002   PAD
+    0x0001054c   0x00000018   Data   RO        33856    .rodata..Lswitch.table.error_msg  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x00010564   0x00000773   Data   RO          273    .rodata.OpenSans_10x15_Regular  BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/OpenSans_Font/OpenSans_Font.o
+    0x00010cd7   0x00000001   PAD
+    0x00010cd8   0x00000030   Data   RO        34884    .rodata.PinMap_I2C_SCL  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010d08   0x00000030   Data   RO        34883    .rodata.PinMap_I2C_SDA  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010d38   0x00000048   Data   RO        34891    .rodata.PinMap_SPI_MISO  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010d80   0x00000048   Data   RO        34890    .rodata.PinMap_SPI_MOSI  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010dc8   0x0000003c   Data   RO        34889    .rodata.PinMap_SPI_SCLK  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010e04   0x0000003c   Data   RO        34892    .rodata.PinMap_SPI_SSEL  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010e40   0x0000003c   Data   RO        34886    .rodata.PinMap_UART_RX  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010e7c   0x0000003c   Data   RO        34885    .rodata.PinMap_UART_TX  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/PeripheralPins.o
+    0x00010eb8   0x00000138   Data   RO          255    .rodata._ZL3seq     BUILD/HEXIWEAR/ARMC6/Hexi_OLED_SSD1351/Hexi_OLED_SSD1351.o
+    0x00010ff0   0x0000005c   Data   RO        33423    .rodata._ZTV12DirectSerial  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0001104c   0x0000005c   Data   RO        32561    .rodata._ZTVN4mbed10FileHandleE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/FileHandle.o
+    0x000110a8   0x00000018   Data   RO         2393    .rodata._ZTVN4mbed10SerialBaseE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/SerialBase.o
+    0x000110c0   0x00000014   Data   RO         2523    .rodata._ZTVN4mbed10TimerEventE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/TimerEvent.o
+    0x000110d4   0x00000018   Data   RO         1831    .rodata._ZTVN4mbed3I2CE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/I2C.o
+    0x000110ec   0x00000020   Data   RO         2213    .rodata._ZTVN4mbed3SPIE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/SPI.o
+    0x0001110c   0x0000009c   Data   RO         2297    .rodata._ZTVN4mbed6SerialE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/Serial.o
+    0x000111a8   0x0000007c   Data   RO        32673    .rodata._ZTVN4mbed6StreamE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
+    0x00011224   0x00000010   Data   RO        32549    .rodata._ZTVN4mbed8FileBaseE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/FileBase.o
+    0x00011234   0x0000006c   Data   RO        32692    .rodata._ZTVN4mbed8FileLikeE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/Stream.o
+    0x000112a0   0x00000014   Data   RO        32849    .rodata._ZTVN4mbed8internal8SysTimerILj1000ELb1EEE  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x000112b4   0x00000018   Data   RO         2121    .rodata._ZTVN4mbed9RawSerialE  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/RawSerial.o
+    0x000112cc   0x00000010   Data   RO        34870    .rodata._ZTVN4rtos6ThreadE  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/Thread.o
+    0x000112dc   0x0000000c   Data   RO         2254    .rodata._ZZN4mbed8CallbackIFviEE8generateIPS1_EEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/mbed-os/drivers/source/SPI.o
+    0x000112e8   0x0000000c   Data   RO          169    .rodata._ZZN4mbed8CallbackIFvvEE8generateINS2_14method_contextI5KW40ZMS5_FvvEEEEEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
+    0x000112f4   0x0000000c   Data   RO          379    .rodata._ZZN4mbed8CallbackIFvvEE8generateINS2_16function_contextIPFvPvEvEEEEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/main.o
+    0x00011300   0x0000000c   Data   RO          168    .rodata._ZZN4mbed8CallbackIFvvEE8generateIPS1_EEvRKT_E3ops  BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
+    0x0001130c   0x00000008   Data   RO        33419    .rodata.__stderr_name  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x00011314   0x00000007   Data   RO        33417    .rodata.__stdin_name  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x0001131b   0x00000008   Data   RO        33418    .rodata.__stdout_name  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x00011323   0x00000001   PAD
+    0x00011324   0x00000020   Data   RO        35117    .rodata.cst16       BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_clock.o
+    0x00011344   0x00000020   Data   RO        34913    .rodata.g_defaultClockConfigRun  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/TARGET_HEXIWEAR/fsl_clock_config.o
+    0x00011364   0x00000014   Data   RO        37454    .rodata.gpio_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x00011378   0x0000000c   Data   RO        37554    .rodata.i2c_addrs   BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x00011384   0x00000003   Data   RO        37555    .rodata.i2c_clocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x00011387   0x00000001   PAD
+    0x00011388   0x00000008   Data   RO        32204    .rodata.lp_data     BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
+    0x00011390   0x00000024   Data   RO        32206    .rodata.lp_interface  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_lp_ticker_api.o
+    0x000113b4   0x00000008   Data   RO        37609    .rodata.lp_ticker_get_info.info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/lp_ticker.o
+    0x000113bc   0x00000004   Data   RO        32862    .rodata.mbed_fault_context  BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x000113c0   0x00000004   Data   RO        34195    .rodata.osRtxUserSVC  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x000113c4   0x00000024   Data   RO        34190    .rodata.os_idle_thread_attr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x000113e8   0x00000018   Data   RO        34192    .rodata.os_timer_mq_attr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x00011400   0x00000024   Data   RO        34191    .rodata.os_timer_thread_attr  BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x00011424   0x00000014   Data   RO        37629    .rodata.port_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
+    0x00011438   0x0000000c   Data   RO        35426    .rodata.s_dspiBases  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_dspi.o
+    0x00011444   0x0000000c   Data   RO        35428    .rodata.s_dspiClock  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_dspi.o
+    0x00011450   0x0000000c   Data   RO        36128    .rodata.s_i2cBases  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
+    0x0001145c   0x0000000c   Data   RO        36130    .rodata.s_i2cClocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
+    0x00011468   0x00000080   Data   RO        36131    .rodata.s_i2cDividerTable  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
+    0x000114e8   0x00000018   Data   RO        36777    .rodata.s_uartBases  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_uart.o
+    0x00011500   0x00000018   Data   RO        36779    .rodata.s_uartClock  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_uart.o
+    0x00011518   0x0000000c   Data   RO        37115    .rodata.spi_address  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x00011524   0x00000003   Data   RO        37116    .rodata.spi_clocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x00011527   0x00000004   Data   RO          110    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/Hexi_KW40Z/Hexi_KW40Z.o
+    0x0001152b   0x00000023   Data   RO         1255    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/components/wifi/esp8266-driver/ESP8266Interface.o
+    0x0001154e   0x00000045   Data   RO        28642    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/features/netsocket/nsapi_dns.o
+    0x00011593   0x0000004e   Data   RO        32694    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/SysTimer.o
+    0x000115e1   0x000000a5   Data   RO        32863    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/TARGET_CORTEX_M/mbed_fault_handler.o
+    0x00011686   0x00000140   Data   RO        33100    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_error.o
+    0x000117c6   0x00000063   Data   RO        33425    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_retarget.o
+    0x00011829   0x00000047   Data   RO        33552    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/platform/source/mbed_wait_api_rtos.o
+    0x00011870   0x00000012   Data   RO        33690    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/Mutex.o
+    0x00011882   0x00000138   Data   RO        33855    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_handlers.o
+    0x000119ba   0x00000036   Data   RO        33900    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/mbed_rtx_idle.o
+    0x000119f0   0x00000013   Data   RO        34196    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_lib.o
+    0x00011a03   0x00000025   Data   RO        34803    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/ThisThread.o
+    0x00011a28   0x0000007e   Data   RO        35115    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_clock.o
+    0x00011aa6   0x000000bc   Data   RO        35427    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_dspi.o
+    0x00011b62   0x0000006c   Data   RO        35624    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_edma.o
+    0x00011bce   0x0000005d   Data   RO        35708    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_enet.o
+    0x00011c2b   0x000000f6   Data   RO        35952    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_flexcan.o
+    0x00011d21   0x0000006b   Data   RO        36129    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_i2c.o
+    0x00011d8c   0x0000005e   Data   RO        36211    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_lptmr.o
+    0x00011dea   0x0000005c   Data   RO        36257    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_pit.o
+    0x00011e46   0x0000005c   Data   RO        36346    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_rtc.o
+    0x00011ea2   0x0000005c   Data   RO        36441    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_sai.o
+    0x00011efe   0x0000005d   Data   RO        36591    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_sdhc.o
+    0x00011f5b   0x00000077   Data   RO        36778    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/drivers/fsl_uart.o
+    0x00011fd2   0x00000057   Data   RO        37038    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x00012029   0x00000054   Data   RO        37114    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/spi_api.o
+    0x0001207d   0x0000005c   Data   RO        37301    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x000120d9   0x00000061   Data   RO        37453    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/gpio_api.o
+    0x0001213a   0x00000048   Data   RO        37553    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/i2c_api.o
+    0x00012182   0x00000047   Data   RO        37628    .rodata.str1.1      BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/api/pinmap.o
+    0x000121c9   0x00000003   PAD
+    0x000121cc   0x0000000b   Data   RO        34176    .rodata.str1.4      BUILD/HEXIWEAR/ARMC6/mbed-os/rtos/source/TARGET_CORTEX/rtx5/RTX/Source/rtx_kernel.o
+    0x000121d7   0x00000001   PAD
+    0x000121d8   0x00000018   Data   RO        37039    .rodata.uart_addrs  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x000121f0   0x00000006   Data   RO        37040    .rodata.uart_clocks  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/serial_api.o
+    0x000121f6   0x00000002   PAD
+    0x000121f8   0x00000008   Data   RO        32318    .rodata.us_data     BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
+    0x00012200   0x00000024   Data   RO        32321    .rodata.us_interface  BUILD/HEXIWEAR/ARMC6/mbed-os/hal/mbed_us_ticker_api.o
+    0x00012224   0x00000008   Data   RO        37299    .rodata.us_ticker_get_info.info  BUILD/HEXIWEAR/ARMC6/mbed-os/targets/TARGET_Freescale/TARGET_MCUXpresso_MCUS/TARGET_MCU_K64F/us_ticker.o
+    0x0001222c   0x00000020   Data   RO        38646    Region$$Table       anon$$obj.o
+    0x0001224c   0x00000110   Data   RO        38264    locale$$data        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_ctype_c.o)
+    0x0001235c   0x0000001c   Data   RO        38465    locale$$data        c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(lc_numeric_c.o)
+    0x00012378   0x00000004   Data   RO          349    .init_array         BUILD/HEXIWEAR/ARMC6/main.o
+    0x0001237c   0x00000000   Data   RO        38004    .init_array         c:\Users\Meghna\AppData\Local\Mbed Studio\mbed-studio-tools\ac6\bin\..\lib\armlib\c_w.l(init_aeabi.o)
 
 
     Execution Region VECTOR_RAM (Base: 0x1fff0000, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
@@ -32400,9 +32405,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     52892       3180       8656        252     228060    3260018   Object Totals
+     53060       3180       8656        252     228060    3260024   Object Totals
          0          0         32          0     197888          0   (incl. Generated)
-       880          0         11          0         42          0   (incl. Padding)
+       886          0         11          0         42          0   (incl. Padding)
      12350        600        554         16        348      10176   Library Totals
         26          0          3          0          0          0   (incl. Padding)
 
@@ -32411,15 +32416,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     65242       3780       9210        268     228408    3262294   Grand Totals
-     65242       3780       9210        268     228408    3262294   ELF Image Totals
-     65242       3780       9210        268          0          0   ROM Totals
+     65410       3780       9210        268     228408    3262300   Grand Totals
+     65410       3780       9210        268     228408    3262300   ELF Image Totals
+     65410       3780       9210        268          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                74452 (  72.71kB)
+    Total RO  Size (Code + RO Data)                74620 (  72.87kB)
     Total RW  Size (RW Data + ZI Data)            228676 ( 223.32kB)
-    Total ROM Size (Code + RO Data + RW Data)      74720 (  72.97kB)
+    Total ROM Size (Code + RO Data + RW Data)      74888 (  73.13kB)
 
 ==============================================================================
 

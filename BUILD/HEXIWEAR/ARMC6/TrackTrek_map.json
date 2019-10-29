@@ -3,11 +3,11 @@
         "module": "FXOS8700\\FXOS8700.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": 138, 
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 364
+            ".text": 502
         }
     }, 
     {
@@ -102,11 +102,11 @@
         "module": "main.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": 24, 
             ".bss": 22225, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 1892
+            ".text": 1916
         }
     }, 
     {
@@ -189,9 +189,9 @@
     {
         "summary": {
             "static_ram": 228634, 
-            "total_flash_delta": 0, 
+            "total_flash_delta": 162, 
             "static_ram_delta": 0, 
-            "total_flash": 73800
+            "total_flash": 73962
         }
     }
 ]

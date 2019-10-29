@@ -143,6 +143,11 @@ void ButtonRightPressed(void) {
 
 int main() {
 
+  // Configure Accelerometer FXOS8700, Magnetometer FXOS8700
+    
+  accel.accel_config();
+  mag.mag_config();
+  
   // Fill 96px by 96px Screen with 96px by 96px Image starting at x=0,y=0
   oled.FillScreen(COLOR_BLACK);
 
