@@ -1,5 +1,5 @@
 /* 
-* Authors : Meghna R Holla (B00812604) and Gaganpreet Singh ()
+* Authors : Meghna R Holla (B00812604) and Gaganpreet Singh (B00819217)
 * Course  : Ubiquitous Computing (CSCI 6609)
 * A "Fall Detection" program to help monitor the health of trekkers and notify their friends/EHS in case of emergencies.
  */
