@@ -3,7 +3,7 @@
         "module": "FXOS8700\\FXOS8700.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 138, 
+            ".text-delta": 0, 
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
@@ -18,7 +18,7 @@
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 1966
+            ".text": 1972
         }
     }, 
     {
@@ -47,11 +47,11 @@
         "module": "[lib]\\c_w.l", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": -22, 
             ".bss": 348, 
             ".data": 16, 
             ".bss-delta": 0, 
-            ".text": 11381
+            ".text": 11359
         }
     }, 
     {
@@ -62,7 +62,7 @@
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 1344
+            ".text": 1440
         }
     }, 
     {
@@ -80,11 +80,11 @@
         "module": "[lib]\\m_wm.l", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": -58, 
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 106
+            ".text": 48
         }
     }, 
     {
@@ -102,11 +102,11 @@
         "module": "main.o", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 24, 
-            ".bss": 22225, 
+            ".text-delta": -448, 
+            ".bss": 22194, 
             ".data": 0, 
-            ".bss-delta": 0, 
-            ".text": 1916
+            ".bss-delta": -72, 
+            ".text": 2718
         }
     }, 
     {
@@ -128,18 +128,18 @@
             ".bss": 412, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 3226
+            ".text": 3544
         }
     }, 
     {
         "module": "mbed-os\\features", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": -4, 
             ".bss": 0, 
             ".data": 0, 
             ".bss-delta": 0, 
-            ".text": 189
+            ".text": 185
         }
     }, 
     {
@@ -168,11 +168,11 @@
         "module": "mbed-os\\rtos", 
         "size": {
             ".data-delta": 0, 
-            ".text-delta": 0, 
+            ".text-delta": -708, 
             ".bss": 6625, 
             ".data": 168, 
             ".bss-delta": 0, 
-            ".text": 14447
+            ".text": 13583
         }
     }, 
     {
@@ -188,10 +188,10 @@
     }, 
     {
         "summary": {
-            "static_ram": 228634, 
-            "total_flash_delta": 162, 
-            "static_ram_delta": 0, 
-            "total_flash": 73962
+            "static_ram": 228603, 
+            "total_flash_delta": -1240, 
+            "static_ram_delta": -72, 
+            "total_flash": 74236
         }
     }
 ]
